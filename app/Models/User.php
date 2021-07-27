@@ -14,7 +14,9 @@ class User extends Authenticatable
     protected $table = 'user';
     protected $primaryKey = 'user_id';
     protected $guarded = [];
-    public function RefProvince(){
+    
+    public function RefProvince()
+    {
         return $this->belongsTo(RefProvince::class, 'ref_province_id', 'ref_province_id');
     }
    
