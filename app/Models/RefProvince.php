@@ -17,4 +17,9 @@ class RefProvince extends Model
         return $this->hasMany(User::class, 'user_id', 'user_id');
     }
 
+    public function WorkerServiceArea()
+    {
+        return $this->hasMany(WorkerServiceArea::class, 'worker_service_area_id', 'worker_service_area_id');
+    }
+
 }

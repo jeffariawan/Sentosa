@@ -17,4 +17,14 @@ class Worker extends Model
     {
         return $this->belongsTo(WorkerLevel::class, 'worker_level_id', 'worker_level_id');
     }
+
+    public function WorkerServiceArea()
+    {
+        return $this->hasMany(WorkerServiceArea::class, 'worker_service_area_id', 'worker_service_area_id');
+    }
+
+    public function WorkerService()
+    {
+        return $this->hasMany(WorkerService::class, 'worker_service_id', 'worker_service_id');
+    }
 }
