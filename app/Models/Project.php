@@ -22,4 +22,19 @@ class Project extends Model
     {
         return $this->hasMany(ProjectServiceDemand::class, 'project_service_demand_id', 'project_service_demand_id');
     }
+
+    public function Auction()
+    {
+        return $this->hasMany(Auction::class, 'auction_id', 'auction_id');
+    }
+
+    public function Survey()
+    {
+        return $this->hasMany(Survey::class, 'survey_id', 'survey_id');
+    }
+
+    public function ProjectProgress()
+    {
+        return $this->hasMany(ProjectProgress::class, 'project_progress_id', 'project_progress_id');
+    }
 }

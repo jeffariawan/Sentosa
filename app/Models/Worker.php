@@ -27,4 +27,19 @@ class Worker extends Model
     {
         return $this->hasMany(WorkerService::class, 'worker_service_id', 'worker_service_id');
     }
+
+    public function Bid()
+    {
+        return $this->hasMany(Bid::class, 'bid_id', 'bid_id');
+    }
+
+    public function Survey()
+    {
+        return $this->hasMany(Survey::class, 'survey_id', 'survey_id');
+    }
+
+    public function WorkerPortofolio()
+    {
+        return $this->hasMany(WorkerPortofolio::class, 'worker_portofolio_id', 'worker_portofolio_id');
+    }
 }
