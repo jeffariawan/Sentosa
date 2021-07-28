@@ -16,4 +16,9 @@ class RefService extends Model
     {
         return $this->hasMany(WorkerService::class, 'worker_service_id', 'worker_service_id');
     }
+
+    public function ProjectServiceDemand()
+    {
+        return $this->hasMany(ProjectServiceDemand::class, 'project_service_demand_id', 'project_service_demand_id');
+    }
 }
