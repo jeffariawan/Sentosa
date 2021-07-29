@@ -22,4 +22,9 @@ class RefProvince extends Model
         return $this->hasMany(WorkerServiceArea::class, 'worker_service_area_id', 'worker_service_area_id');
     }
 
+    public function RefCourier()
+    {
+        return $this->hasMany(RefCourier::class, 'ref_courier_id', 'ref_courier_id');
+    }
+
 }
