@@ -21,4 +21,9 @@ class WorkerPortofolio extends Model
     {
         return $this->hasMany(RefPicture::class, 'ref_picture_id', 'ref_picture_id');
     }
+
+    public function RefService()
+    {
+        return $this->belongsTo(RefService::class, 'ref_service_id', 'ref_service_id');
+    }
 }
