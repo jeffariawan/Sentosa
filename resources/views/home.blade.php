@@ -14,9 +14,9 @@
                         Bootstrap</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
-                            <a href="#about"
+                            <a href="{{ route('project.PostProjectStart') }}"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Get Started</span>
+                                <span>Hire a Worker</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -258,28 +258,29 @@
                 </div>
 
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                  @foreach ($porto as $prt)
+                  @foreach ($picture as $pct)
                   @php
-                      if($prt->ref_service_id == 1)
+                      if($pct->WorkerPortofolio->ref_service_id == 1)
                       {
                         $tagPortofolio = 'tukang';
-                      }else if ($prt->ref_service_id == 2)
+                      }else if ($pct->WorkerPortofolio->ref_service_id == 2)
                       {
                         $tagPortofolio = 'arsitek';
-                      }else if ($prt->ref_service_id == 3)
+                      }else if ($pct->WorkerPortofolio->ref_service_id == 3)
                       {
                         $tagPortofolio = 'design';
                       }
                   @endphp 
+                  
                     <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $tagPortofolio }}">
                         <div class="portfolio-wrap">
-                            <img src="{{ URL::asset($prt->picture) }}" class="img-fluid" alt="">
+                            <img src="{{ URL::asset($pct->picture_name) }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <h4>{{ $prt->name }}</h4>
-                                <p>{{ $prt->description }}</p>
+                                <h4>{{ $pct->WorkerPortofolio->name }}</h4>
+                                <p>{{ $pct->WorkerPortofolio->description }}</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ URL::asset($prt->picture) }}" data-gallery="portfolioGallery"
-                                        class="portfokio-lightbox" title="{{ $prt->name }}"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ URL::asset($pct->picture_name) }}" data-gallery="portfolioGallery"
+                                        class="portfokio-lightbox" title="{{ $pct->WorkerPortofolio->name }}"><i class="bi bi-plus"></i></a>
                                     <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
                                 </div>
                             </div>
@@ -305,7 +306,7 @@
                     <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
                             <div class="member-img">
-                                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                                <img src="{{ URL::asset($wokr->profile_pic) }}" class="img-fluid" alt="">
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>

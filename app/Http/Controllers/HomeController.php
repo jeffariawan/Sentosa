@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\RefPicture;
 use Illuminate\Http\Request;
 use App\Models\WorkerPortofolio;
 use App\Services\ArticleService;
@@ -30,9 +31,10 @@ class HomeController extends Controller
         $worker = $workerSvc->getWorker(4);
 
         //Portofolio
-        $porto = WorkerPortofolio::get();
+        $porto = WorkerPortofolio::with('RefPicture')->find(1);
+        $picture = RefPicture::get();
 
-        return view('home', compact('article','faq','worker','porto'));
+        return view('home', compact('article','faq','worker','porto','picture'));
     }
 
     /**
