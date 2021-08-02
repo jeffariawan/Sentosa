@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\RefProvince;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -36,5 +37,10 @@ class Project extends Model
     public function ProjectProgress()
     {
         return $this->hasMany(ProjectProgress::class, 'project_progress_id', 'project_progress_id');
+    }
+
+    public function RefProvince()
+    {
+        return $this->belongsTo(RefProvince::class, 'ref_province_id', 'ref_province_id');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Article;
 use App\Models\RefPicture;
 use Illuminate\Http\Request;
@@ -34,7 +35,22 @@ class HomeController extends Controller
         $porto = WorkerPortofolio::with('RefPicture')->find(1);
         $picture = RefPicture::get();
 
-        return view('home', compact('article','faq','worker','porto','picture'));
+        $userId = session('userId');
+
+        $user=User::where('user_id', '=',  $userId)
+        ->first();
+        
+        $userSession = '';
+        if($user == null)
+        {
+            $userSession = 'belum login';
+        }else
+        {
+            $userSession = $user->username;
+        }
+
+
+        return view('home', compact('article','faq','worker','porto','picture','userSession'));
     }
 
     /**

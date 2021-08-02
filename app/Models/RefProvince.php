@@ -27,4 +27,9 @@ class RefProvince extends Model
         return $this->hasMany(RefCourier::class, 'ref_courier_id', 'ref_courier_id');
     }
 
+    public function Project()
+    {
+        return $this->hasMany(Project::class, 'project_id', 'project_id');
+    }
+
 }
