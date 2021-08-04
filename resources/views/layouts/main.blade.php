@@ -22,45 +22,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="{{ URL::asset('assets/js/filter.js') }}"></script>
     
-    <script>
-$(document).ready(function() {
-    $(document).on('click', '.filter_checkbox', function () {
 
-        var ids = [];
-
-        var counter = 0;
-        $('.filter_checkbox').each(function () {
-            if ($(this).is(":checked")) {
-                ids.push($(this).attr('id'));
-                counter++;
-            }
-        });
-console.log(ids);
-        if (counter != 0)  
-        {
-            fetchCauseAgainstCategory(ids);
-        }
-    });
-});
-
-function fetchCauseAgainstCategory(id) {
-
-    $('.result_div').empty();
-
-    $.ajax({
-        type: 'GET',
-        url: '/project/projectFilterResult/'+ id,
-        success: function (response) {
-            var response = JSON.parse(response);
-          
-            console.log(response);
-        },
-        error: function(xhr){
-          console.log(xhr.responseText);
-        }
-    });
-}
-      </script>
   </body>
 </html>

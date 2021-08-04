@@ -15,8 +15,9 @@ class ProjectViewController extends Controller
     {   //untuk narik data dari tabel
         $service=RefService::get();
         $province=RefProvince::get();
+        $project=Project::get();
 
-        return view('project.ProjectView',compact('service','province'));
+        return view('project.ProjectView',compact('service','province','project'));
     }
 
     public function projectFilterResult($id)
@@ -24,11 +25,22 @@ class ProjectViewController extends Controller
         $service=RefService::get();
         $province=RefProvince::get();
         $tampung =explode(",",$id);
-        // $data = DB::table('project')->selectRaw('select * from project where ref_service_id  IN ('.$id.')')->get();
-        // $test = json_encode($data);
-        $project=ProjectServiceDemand::select ('*')
+
+        $projectServiceDemand=ProjectServiceDemand::select ('*')
         ->whereIn('ref_service_id', $tampung)
         ->get();
+
+        $projectReturn = array();
+
+        foreach($projectServiceDemand as $psd)
+        {
+            $projectReturn[] = $psd->project_id;
+        }
+
+        $project=Project::select ('*')
+        ->whereIn('project_id', $projectReturn)
+        ->get();
+
 
         echo json_encode($project);
 
