@@ -6,6 +6,7 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\ArticleService;
+use App\Models\User;
 
 
 class ArticleController extends Controller
@@ -14,7 +15,6 @@ class ArticleController extends Controller
     {
         $articelSvc = new ArticleService;
         $article = $articelSvc->getArticle(3);
-        
         return view('article.index', compact('article'));
     }
 }

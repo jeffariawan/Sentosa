@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use validator;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Contracts\Session\Session;
@@ -96,17 +97,67 @@ class RegisLoginController extends Controller
         
     public function validasiLogin(Request $request)
     {  
+        
         $user=User::where('username', '=',  $request->username)
                 ->where('password', '=',$request->password)
                 ->first();
 
-        if($user->user_id != null)
+        if (is_null($user))
+        {
+            return 'gagal';
+        }else
         {
             session(['userId' => $user->user_id]);
             return redirect()->route('home');
-        }else
-        {
-            return 'gagal';
         }
     }
+
+    // public function validasiLogin1(Request $request)
+    // {
+    //     $rules = [
+    //         'username'  => 'required',
+    //         'password'  => 'min:5|required'
+    //     ];
+ 
+    //     $messages = [
+    //         'password.required'      => 'Password wajib diisi.',
+    //         'password.min'           => 'Password minimal diisi dengan 5 karakter.',
+    //         'username.required'      => 'Username wajib diisi.'
+    //     ];
+ 
+    //     $validator = Validator::make($request->all(), $rules, $messages);
+         
+    //     if($validator->fails()){
+    //         return redirect()->back()->withErrors($validator)->withInput($request->all());
+    //     }
+ 
+    //     $user=User::where('username', '=',  $request->username)
+    //             ->where('password', '=',$request->password)
+    //             ->first();
+
+    //     if ($user->user_id != null)
+    //     {
+    //         session(['userId' => $user->user_id]);
+    //         return redirect()->route('home');
+    //     }else
+    //     {
+    //         return 'gagal';
+    //     }
+    // }
+
+    // public function validasiLogin2(LoginRequest $request)
+    // {
+    //     $user=User::where('username', '=',  $request->username)
+    //             ->where('password', '=',$request->password)
+    //             ->first();
+
+    //     if ($user->user_id != null)
+    //     {
+    //         session(['userId' => $user->user_id]);
+    //         return redirect()->route('home');
+    //     }else
+    //     {
+    //         return 'gagal';
+    //     }
+    // }
 }

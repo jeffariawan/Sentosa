@@ -35,22 +35,7 @@ class HomeController extends Controller
         $porto = WorkerPortofolio::with('RefPicture')->find(1);
         $picture = RefPicture::get();
 
-        $userId = session('userId');
-
-        $user=User::where('user_id', '=',  $userId)
-        ->first();
-        
-        $userSession = '';
-        if($user == null)
-        {
-            $userSession = 'belum login';
-        }else
-        {
-            $userSession = $user->username;
-        }
-
-
-        return view('home', compact('article','faq','worker','porto','picture','userSession'));
+        return view('home', compact('article','faq','worker','porto','picture'));
     }
 
     /**

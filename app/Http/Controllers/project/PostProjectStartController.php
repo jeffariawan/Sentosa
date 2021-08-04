@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\project;
 
+use App\Models\User;
 use App\Models\Project;
 use App\Models\RefService;
 use App\Models\RefProvince;
@@ -21,6 +22,11 @@ class PostProjectStartController extends Controller
 
     public function store(Request $request)
     {
+        $userId = session('userId');
+        if (is_null($userId))
+        {
+            return 'login terlebi dahulu';
+        }
         //untuk insert ke tabel
         $project = new Project;
         $project->title = $request->title;
@@ -33,9 +39,10 @@ class PostProjectStartController extends Controller
         $project->total_worker = $request->totalWorker;
         $project->address = $request->address;
         $project->ref_province_id = $request->refProvinceId;
+        $project->user_id = $userId;
 
         $project->save();
-        
+
 
         foreach($request->refServiceId as $rsi)
         {
@@ -47,5 +54,19 @@ class PostProjectStartController extends Controller
 
 
         return back()->with('success','posting sukses!');
+    
+    }
+
+
+    public function validasiproject(Request $request)
+    {
+        if ($user->user_id != null)
+        {
+            session(['userId' => $user->user_id]);
+            return redirect()->route('home');
+        }else
+        {
+            return 'gagal';
+        }
     }
 }

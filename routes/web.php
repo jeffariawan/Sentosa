@@ -26,6 +26,8 @@ Route::get('/article/index',[ArticleController::class,'index'])->name('article.i
 //project
 Route::get('/project/PostProjectStart',[PostProjectStartController::class,'index'])->name('project.PostProjectStart');
 Route::post('/project/PostProjectStart/store',[PostProjectStartController::class,'store'])->name('project.PostProjectStart.store');
+Route::post('/project/PostProjectStart/store1',[PostProjectStartController::class,'validasiLogin'])->name('project.PostProjectStart.store1');
+
 Route::get('/project/ProjectView',[ProjectViewController::class,'index'])->name('project.ProjectView');
 Route::get('/project/projectFilterResult/{id}', [ProjectViewController::class,'projectFilterResult'])->name('project.projectFilterResult');
 
@@ -36,4 +38,5 @@ Route::post('/user/registrasi/store1',[RegisLoginController::class,'store1'])->n
 Route::post('/user/registrasi/store2',[RegisLoginController::class,'store2'])->name('user.registrasi.store');
 Route::get('/user/login',[RegisLoginController::class,'indexLogin'])->name('user.login');
 Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin'])->name('user.login.submit');
+
 
