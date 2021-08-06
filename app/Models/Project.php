@@ -23,12 +23,7 @@ class Project extends Model
     {
         return $this->hasMany(ProjectServiceDemand::class, 'project_service_demand_id', 'project_service_demand_id');
     }
-
-    public function Auction()
-    {
-        return $this->hasMany(Auction::class, 'auction_id', 'auction_id');
-    }
-
+    
     public function Survey()
     {
         return $this->hasMany(Survey::class, 'survey_id', 'survey_id');
@@ -42,5 +37,10 @@ class Project extends Model
     public function RefProvince()
     {
         return $this->belongsTo(RefProvince::class, 'ref_province_id', 'ref_province_id');
+    }
+
+    public function Bid()
+    {
+        return $this->hasMany(Bid::class, 'bid_id', 'bid_id');
     }
 }

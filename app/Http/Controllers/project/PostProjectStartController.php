@@ -40,6 +40,7 @@ class PostProjectStartController extends Controller
         $project->address = $request->address;
         $project->ref_province_id = $request->refProvinceId;
         $project->user_id = $userId;
+        $project->status = "open";
 
         $project->save();
 
