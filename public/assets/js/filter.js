@@ -30,7 +30,7 @@ function cekCheckbox() {
 
 function fetchCauseAgainstCategory(id) {
     $('.result_div').empty();
-    
+
     $.ajax({
         type: 'GET',
         url: '/project/projectFilterResult/' + id,
@@ -41,17 +41,28 @@ function fetchCauseAgainstCategory(id) {
 
             response.forEach(element => {
                 $('.causes_div').append(`
-                    
-                                        <div class="col-lg-8">
-                                            <h5 class="card-title">${element.title}</h5>
-                                            <p class="card-text">${element.description}</p>
-                                        </div>
-                                        <div class="col-lg-4 ">
-                                                <h5 class="float-right">Rp. ${element.budget_range_min} -
-                                                    Rp. ${element.budget_max}</h5>
-                                                    <a href="#" class="btn btn-primary">Lihat</a>
-                                            </div>
-                                        </div>                   
+                                        
+                <article class="entryprojectview">
+
+                <h2 class="entry-title"><i class="bi bi-house-door"></i>
+                  <a href="blog-single.html">${element.title}</a>
+                </h2>
+                
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-cash-coin"></i> 
+                    <a href="blog-single.html">Rp.${element.budget_range_min}-Rp.${element.budget_range_max}</a></li>
+                  </ul>
+                </div>
+                
+                <div class="entry-content">
+                  <p>${element.description}</p>
+                  <div class="read-more">
+                  <a href="/ProjectViewDetail/${element.project_id}">Bid now</a>
+                  </div>
+                </div>
+                
+                </article>            
                     `);
             });
 

@@ -149,6 +149,7 @@ rel="stylesheet"
   <script src="{{ URL::asset('assets/vendor/purecounter/purecounter.js') }}"></script>
   <script src="{{ URL::asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ URL::asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ URL::asset('assets/js/filter.js') }}"></script>
 
   
 

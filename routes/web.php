@@ -6,6 +6,7 @@ use App\Http\Controllers\article\ArticleController;
 use App\Http\Controllers\user\RegisLoginController;
 use App\Http\Controllers\project\ProjectViewController;
 use App\Http\Controllers\project\PostProjectStartController;
+use App\Http\Controllers\project\ProjectViewDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\project\PostProjectStartController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Home
 Route::get('/',[HomeController::class,'index'])->name('home');
 
 //Article
@@ -30,12 +31,17 @@ Route::post('/project/PostProjectStart/store1',[PostProjectStartController::clas
 
 Route::get('/project/ProjectView',[ProjectViewController::class,'index'])->name('project.ProjectView');
 Route::get('/project/projectFilterResult/{id}', [ProjectViewController::class,'projectFilterResult'])->name('project.projectFilterResult');
+Route::get('/project/ProjectView/show',[ProjectViewController::class,'show'])->name('project.ProjectView.show');
+
+Route::get('/ProjectViewDetail/{id}',[ProjectViewDetailController::class,'index'])->name('project.ProjectViewDetail');
+
 
 //user
 Route::get('/user/registrasi',[RegisLoginController::class,'index'])->name('user.registrasi');
 Route::post('/user/registrasi/store',[RegisLoginController::class,'store'])->name('user.registrasi.store');
 Route::post('/user/registrasi/store1',[RegisLoginController::class,'store1'])->name('user.registrasi.store');
 Route::post('/user/registrasi/store2',[RegisLoginController::class,'store2'])->name('user.registrasi.store');
+
 Route::get('/user/login',[RegisLoginController::class,'indexLogin'])->name('user.login');
 Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin'])->name('user.login.submit');
 
