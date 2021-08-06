@@ -59,15 +59,15 @@ class PostProjectStartController extends Controller
     }
 
 
-    public function validasiproject(Request $request)
-    {
-        if ($user->user_id != null)
-        {
-            session(['userId' => $user->user_id]);
-            return redirect()->route('home');
-        }else
-        {
-            return 'gagal';
-        }
-    }
+    // public function validasiproject(Request $request)
+    // {
+    //     if ($user->user_id != null)
+    //     {
+    //         session(['userId' => $user->user_id]);
+    //         return redirect()->route('home');
+    //     }else
+    //     {
+    //         return 'gagal';
+    //     }
+    // }
 }

@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8"><h2>{{ $project->title }}</h2></div>
-          <div class="col-lg-4"><h2>Budget Rp.{{ $project->budget_range_min }}-Rp.{{ $project->budget_range_max }}</h2></div>
+          <div class="col-lg-4"><h2>Budget Rp.{{ $project->budget_range_min }} - Rp.{{ $project->budget_range_max }}</h2></div>
         </div>
       </div>
     </section><!-- End Breadcrumbs -->
@@ -83,26 +83,30 @@
               <div class="reply-form">
                 <h4>Leave a Reply</h4>
                 <p>Your email address will not be published. Required fields are marked * </p>
-                <form action="">
+                <form action="{{ route('project.ProjectViewDetail.bidstore', ['userid'=>$userIdSession, 'projectid'=>$project->project_id]) }}">
+                  @csrf
                   <div class="row">
                     <div class="col-md-6 form-group">
-                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                      <input name="offerprice" type="text" class="form-control" placeholder="Offer Price">
                     </div>
                     <div class="col-md-6 form-group">
-                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                      <input name="totalworker" type="text" class="form-control" placeholder="Total Worker*">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col form-group">
-                      <input name="website" type="text" class="form-control" placeholder="Your Website">
+                      <input name="time" type="text" class="form-control" placeholder="Time Estimation">
+                    </div>
+                    <div class="col form-group">
+                      <input name="start" type="text" class="form-control" placeholder="Time Estimation">
                     </div>
                   </div>
                   <div class="row">
                     <div class="col form-group">
-                      <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                      <textarea name="desc" class="form-control" placeholder="Description"></textarea>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                  <button type="submit" class="btn btn-primary">Bid</button>
 
                 </form>
 

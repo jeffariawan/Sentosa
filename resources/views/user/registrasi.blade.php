@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('user.login.submit') }}" method="post" class="php-email-form">
+            <form action="{{ route('user.registrasi.store') }}" method="post" class="php-email-form">
                 {{ csrf_field() }}
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-8 col-xl-6">
