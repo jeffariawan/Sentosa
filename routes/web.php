@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\article\ArticleController;
 use App\Http\Controllers\user\RegisLoginController;
 use App\Http\Controllers\project\ProjectViewController;
+use App\Http\Controllers\user\OpsiRegistrasiController;
 use App\Http\Controllers\project\PostProjectStartController;
 use App\Http\Controllers\project\ProjectViewDetailController;
 
@@ -45,5 +46,7 @@ Route::post('/user/registrasi/store2',[RegisLoginController::class,'store2'])->n
 
 Route::get('/user/login',[RegisLoginController::class,'indexLogin'])->name('user.login');
 Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin'])->name('user.login.submit');
+
+Route::get('/user/opsiregistrasi',[OpsiRegistrasiController::class,'index'])->name('user.opsiregistrasi');
 
 
