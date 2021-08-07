@@ -8,7 +8,7 @@ use App\Http\Controllers\project\ProjectViewController;
 use App\Http\Controllers\user\OpsiRegistrasiController;
 use App\Http\Controllers\project\PostProjectStartController;
 use App\Http\Controllers\project\ProjectViewDetailController;
-
+use App\Http\Controllers\user\RegistrasiWorkerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,5 +48,8 @@ Route::get('/user/login',[RegisLoginController::class,'indexLogin'])->name('user
 Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin'])->name('user.login.submit');
 
 Route::get('/user/opsiregistrasi',[OpsiRegistrasiController::class,'index'])->name('user.opsiregistrasi');
+Route::get('/user/registrasiworker',[RegistrasiWorkerController::class,'index'])->name('user.registrasiworker');
+Route::post('/user/registrasiworker/store',[RegistrasiWorkerController::class,'store'])->name('user.registrasiworker.store');
+
 
 
