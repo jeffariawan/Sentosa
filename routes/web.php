@@ -27,13 +27,14 @@ Route::get('/article/index',[ArticleController::class,'index'])->name('article.i
 //project
 Route::get('/project/PostProjectStart',[PostProjectStartController::class,'index'])->name('project.PostProjectStart');
 Route::post('/project/PostProjectStart/store',[PostProjectStartController::class,'store'])->name('project.PostProjectStart.store');
-Route::post('/project/PostProjectStart/store1',[PostProjectStartController::class,'validasiLogin'])->name('project.PostProjectStart.store1');
+// Route::post('/project/PostProjectStart/store1',[PostProjectStartController::class,'validasiLogin'])->name('project.PostProjectStart.store1');
 
 Route::get('/project/ProjectView',[ProjectViewController::class,'index'])->name('project.ProjectView');
 Route::get('/project/projectFilterResult/{id}', [ProjectViewController::class,'projectFilterResult'])->name('project.projectFilterResult');
 Route::get('/project/ProjectView/show',[ProjectViewController::class,'show'])->name('project.ProjectView.show');
 
-Route::get('/ProjectViewDetail/{id}',[ProjectViewDetailController::class,'index'])->name('project.ProjectViewDetail');
+Route::get('/ProjectViewDetail/{projectid}',[ProjectViewDetailController::class,'index'])->name('project.ProjectViewDetail');
+Route::get('/project/ProjectViewDetail/bidstore/{workerid}/{projectid}',[ProjectViewDetailController::class,'BidStore'])->name('project.ProjectViewDetail.bidstore');
 
 
 //user

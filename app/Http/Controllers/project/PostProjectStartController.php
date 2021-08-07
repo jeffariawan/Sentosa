@@ -40,6 +40,7 @@ class PostProjectStartController extends Controller
         $project->address = $request->address;
         $project->ref_province_id = $request->refProvinceId;
         $project->user_id = $userId;
+        $project->status = "open";
 
         $project->save();
 
@@ -58,15 +59,15 @@ class PostProjectStartController extends Controller
     }
 
 
-    public function validasiproject(Request $request)
-    {
-        if ($user->user_id != null)
-        {
-            session(['userId' => $user->user_id]);
-            return redirect()->route('home');
-        }else
-        {
-            return 'gagal';
-        }
-    }
+    // public function validasiproject(Request $request)
+    // {
+    //     if ($user->user_id != null)
+    //     {
+    //         session(['userId' => $user->user_id]);
+    //         return redirect()->route('home');
+    //     }else
+    //     {
+    //         return 'gagal';
+    //     }
+    // }
 }

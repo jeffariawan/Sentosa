@@ -19,6 +19,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(RefProvince::class, 'ref_province_id', 'ref_province_id');
     }
+
+    public function Worker()
+    {
+        return $this->hasOne(Worker::class, 'worker_id', 'worker_id');
+    }
    
     protected $hidden = [
         'password',
