@@ -32,7 +32,7 @@ class ProjectViewDetailController extends Controller
         $Bid->time_estimation = $request->time;
         $Bid->total_worker = $request->totalworker;
         $Bid->available_start_dt = $request->start;
-        $Bid->worker_id = $request->;
+        // $Bid->worker_id = $request->;
         $Bid->save();
 
         return 1;

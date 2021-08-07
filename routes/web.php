@@ -45,7 +45,7 @@ Route::post('/user/registrasi/store1',[RegisLoginController::class,'store1'])->n
 Route::post('/user/registrasi/store2',[RegisLoginController::class,'store2'])->name('user.registrasi.store');
 
 Route::get('/user/login',[RegisLoginController::class,'indexLogin'])->name('user.login');
-Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin'])->name('user.login.submit');
+Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin2'])->name('user.login.submit');
 
 Route::get('/user/opsiregistrasi',[OpsiRegistrasiController::class,'index'])->name('user.opsiregistrasi');
 
