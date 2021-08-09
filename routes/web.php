@@ -9,6 +9,10 @@ use App\Http\Controllers\user\OpsiRegistrasiController;
 use App\Http\Controllers\project\PostProjectStartController;
 use App\Http\Controllers\project\ProjectViewDetailController;
 use App\Http\Controllers\user\RegistrasiWorkerController;
+use App\Http\Controllers\dashboard\DashboardIndexController;
+use App\Http\Controllers\dashboard\DashboardProjectDetailController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,23 +24,23 @@ use App\Http\Controllers\user\RegistrasiWorkerController;
 |
 */
 //-----------------------------------------------------------Home--------------------------------------------------------------------------
-Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //Article
-Route::get('/article/index',[ArticleController::class,'index'])->name('article.index');
+Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 
 //project
-Route::get('/project/PostProjectStart',[PostProjectStartController::class,'index'])->name('project.PostProjectStart');
-Route::post('/project/PostProjectStart/store',[PostProjectStartController::class,'store'])->name('project.PostProjectStart.store');
+Route::get('/project/PostProjectStart', [PostProjectStartController::class, 'index'])->name('project.PostProjectStart');
+Route::post('/project/PostProjectStart/store', [PostProjectStartController::class, 'store'])->name('project.PostProjectStart.store');
 // Route::post('/project/PostProjectStart/store1',[PostProjectStartController::class,'validasiLogin'])->name('project.PostProjectStart.store1');
 
-Route::get('/project/ProjectView',[ProjectViewController::class,'index'])->name('project.ProjectView');
-Route::get('/project/projectFilterResult/{id}', [ProjectViewController::class,'projectFilterResult'])->name('project.projectFilterResult');
-Route::get('/project/ProjectView/show',[ProjectViewController::class,'show'])->name('project.ProjectView.show');
+Route::get('/project/ProjectView', [ProjectViewController::class, 'index'])->name('project.ProjectView');
+Route::get('/project/projectFilterResult/{id}', [ProjectViewController::class, 'projectFilterResult'])->name('project.projectFilterResult');
+Route::get('/project/ProjectView/show', [ProjectViewController::class, 'show'])->name('project.ProjectView.show');
 
-Route::get('/ProjectViewDetail/{projectid}',[ProjectViewDetailController::class,'index'])->name('project.ProjectViewDetail');
-Route::get('/project/ProjectViewDetail/bidstore/{userid}/{projectid}',[ProjectViewDetailController::class,'BidStore'])->name('project.ProjectViewDetail.bidstore');
-Route::post('/project/ProjectViewDetail/setprojectwinner',[ProjectViewDetailController::class,'SetProjectWinner'])->name('project.ProjectViewDetail.setprojectwinner');
+Route::get('/ProjectViewDetail/{projectid}', [ProjectViewDetailController::class, 'index'])->name('project.ProjectViewDetail');
+Route::get('/project/ProjectViewDetail/bidstore/{userid}/{projectid}', [ProjectViewDetailController::class, 'BidStore'])->name('project.ProjectViewDetail.bidstore');
+Route::post('/project/ProjectViewDetail/setprojectwinner', [ProjectViewDetailController::class, 'SetProjectWinner'])->name('project.ProjectViewDetail.setprojectwinner');
 
 
 //user
@@ -53,4 +57,6 @@ Route::get('/user/registrasiworker',[RegistrasiWorkerController::class,'index'])
 Route::post('/user/registrasiworker/store',[RegistrasiWorkerController::class,'store'])->name('user.registrasiworker.store');
 
 
-
+//Dashboard
+Route::get('/dashboard/index/', [DashboardIndexController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard/projectDetail/{projectid}', [DashboardProjectDetailController::class, 'index'])->name('dashboard.projectDetail');

@@ -127,7 +127,7 @@
                                                 placeholder="waktu yang dibutuhkan untuk selesai">
                                         </div>
                                         <div class="col form-group">
-                                            <input name="start" type="text" class="form-control"
+                                            <input name="start" type="date" class="form-control"
                                                 placeholder="Bisa mulai tanggal berapa">
                                         </div>
                                     </div>
