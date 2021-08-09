@@ -1,7 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.homeMain')
 
 @section('container')
-    <section id="registrasi" class="registrasi">
+    <section id="regissentosa" class="regissentosa">
         <div class="container">
             <div class="row gy-4 mt-3">
 
@@ -19,10 +19,10 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('user.registrasi.store') }}" method="post" class="php-email-form">
+                    <form action="{{ route('user.registrasi.store2') }}" method="post" class="">
                         {{ csrf_field() }}
                         <div class="col text-center">
-                            <h1>Register</h1>
+                            <h1>Registrasi</h1>
                         </div>
                         <div class="form-group">
                             <h6>Nama</h6>

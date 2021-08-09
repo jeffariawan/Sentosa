@@ -19,6 +19,11 @@
                                 <span>Hire a Worker</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
+                            <a href="{{ route('user.login') }}"
+                                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>Hire a Worker</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

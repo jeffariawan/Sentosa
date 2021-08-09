@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <button type="submit">Next</button>
+                            <button type="submit" href="{{ route('user.login.submit') }}">Next</button>
                         </div>
                     </div>
 

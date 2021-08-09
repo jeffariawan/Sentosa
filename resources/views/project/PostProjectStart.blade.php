@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mt-3">
                         <label for="birthday">Tanggal mulai Projek :</label>
                         <br>
                         <input type="date" class="form-control" name="startDt" placeholder="Start date">
@@ -88,7 +88,7 @@
 
 
                     <div class="col-md-12">
-                        <button type="submit">Next</button>
+                        <button type="submit" class="btn btn-success">Next</button>
                     </div>
                 </form>
 
