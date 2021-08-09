@@ -42,8 +42,8 @@ Route::post('/project/ProjectViewDetail/setprojectwinner',[ProjectViewDetailCont
 //user
 Route::get('/user/registrasi',[RegisLoginController::class,'index'])->name('user.registrasi');
 Route::post('/user/registrasi/store',[RegisLoginController::class,'store'])->name('user.registrasi.store');
-Route::post('/user/registrasi/store1',[RegisLoginController::class,'store1'])->name('user.registrasi.store');
-Route::post('/user/registrasi/store2',[RegisLoginController::class,'store2'])->name('user.registrasi.store');
+Route::post('/user/registrasi/store1',[RegisLoginController::class,'store1'])->name('user.registrasi.store1');
+Route::post('/user/registrasi/store2',[RegisLoginController::class,'store2'])->name('user.registrasi.store2');
 
 Route::get('/user/login',[RegisLoginController::class,'indexLogin'])->name('user.login');
 Route::post('/user/login/submit',[RegisLoginController::class,'validasiLogin2'])->name('user.login.submit');
