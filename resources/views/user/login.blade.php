@@ -1,14 +1,15 @@
-@extends('layouts.main')
+@extends('layouts.homeMain')
 
 @section('container')
-    <section id="registrasi" class="registrasi">
+    <section id="loginsentosa" class="loginsentosa">
         <div class="container">
             <div class="row gy-4 mt-4">
 
-                <div class="col-lg-4">
+                <div class="col-lg-7">
+					<img src="{{ URL::asset('assets/img/home1.png') }}" alt="">
                 </div>
 
-                <div class="col-lg-4 shadow p-4 mb-5 bg-white rounded" style='padding: 3%;'>
+                <div  class="filter-shadow-sentosa col-lg-3 shadow p-4 mb-5 bg-white rounded" style='padding: 3%;'>
 
                     @if (Session::has('success'))
                         <div class="alert alert-danger">
@@ -19,7 +20,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('user.login.submit') }}" method="post" class="php-email-form">
+                    <form action="{{ route('user.login.submit') }}" method="post" class="">
                         {{ csrf_field() }}
                         <div class="col text-center">
                             <h1>Login</h1>
@@ -63,36 +64,11 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-4">
+
+				<div class="col-lg-2">
                 </div>
             </div>
         </div>
         </div>
     </section>
 @endsection
-
-
-
-
-{{-- <form action="{{ route('user.login.submit') }}" method="post">
-		@csrf
-		<div class="input-group form-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-user"></i></span>
-			</div>
-			<input name="username" type="text" class="form-control" placeholder="username">
-
-		</div>
-		<div class="input-group form-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fas fa-key"></i></span>
-			</div>
-			<input name="password" type="password" class="form-control" placeholder="password">
-		</div>
-		<div class="row align-items-center remember">
-			<input type="checkbox">Remember Me
-		</div>
-		<div class="form-group">
-			<input type="submit" value="Login" class="btn float-right login_btn">
-		</div>
-	</form> --}}

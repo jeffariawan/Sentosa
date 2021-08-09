@@ -19,7 +19,7 @@ use App\Http\Controllers\user\RegistrasiWorkerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Home
+//-----------------------------------------------------------Home--------------------------------------------------------------------------
 Route::get('/',[HomeController::class,'index'])->name('home');
 
 //Article
@@ -35,7 +35,8 @@ Route::get('/project/projectFilterResult/{id}', [ProjectViewController::class,'p
 Route::get('/project/ProjectView/show',[ProjectViewController::class,'show'])->name('project.ProjectView.show');
 
 Route::get('/ProjectViewDetail/{projectid}',[ProjectViewDetailController::class,'index'])->name('project.ProjectViewDetail');
-Route::get('/project/ProjectViewDetail/bidstore/{workerid}/{projectid}',[ProjectViewDetailController::class,'BidStore'])->name('project.ProjectViewDetail.bidstore');
+Route::get('/project/ProjectViewDetail/bidstore/{userid}/{projectid}',[ProjectViewDetailController::class,'BidStore'])->name('project.ProjectViewDetail.bidstore');
+Route::post('/project/ProjectViewDetail/setprojectwinner',[ProjectViewDetailController::class,'SetProjectWinner'])->name('project.ProjectViewDetail.setprojectwinner');
 
 
 //user

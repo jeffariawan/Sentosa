@@ -2466,3 +2466,32 @@ Sentosa Custom CSS -------------------------------------*/
 .blog .entryprojectview .entry-content .read-more a:hover {
   background: #5969f3;
 }
+
+/*login*/
+.loginsentosa{
+  background-color: rgb(221, 221, 221);
+  
+}
+
+@media screen and (max-width: 768px) {
+  .loginsentosa {
+     padding: 0;
+     margin: 0;
+     background-color: #fff;
+  };
+  .loginsentosa .container {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+/*button sentosa*/
+.btn-sentosa-blue {
+  line-height: 0;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+}

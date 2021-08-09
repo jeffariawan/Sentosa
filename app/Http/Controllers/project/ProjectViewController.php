@@ -39,6 +39,7 @@ class ProjectViewController extends Controller
 
         $project=Project::select ('*')
         ->whereIn('project_id', $projectReturn)
+        ->where('status','=','open')
         ->get();
 
 

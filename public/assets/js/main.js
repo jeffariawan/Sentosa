@@ -287,3 +287,20 @@
   });
 
 })();
+
+
+// loginsentosa
+
+function resize() {;
+
+  if ($(window).width() < 700) 
+  {
+    $('.filter-shadow-sentosa').removeClass('shadow');
+  }else{
+    $('.filter-shadow-sentosa').addClass('shadow');
+  }
+}
+//watch window resize
+$(window).on('resize', function() {
+  resize()
+});

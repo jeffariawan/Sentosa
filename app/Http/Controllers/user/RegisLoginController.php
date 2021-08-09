@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\user;
 
-use validator;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Validator;
 
 class RegisLoginController extends Controller
 {
 
-    //regis
+    //-----------------------------------------------------------regis--------------------------------------------------------------------------
     public function index()
     {  
         $user=User::get();
@@ -85,11 +85,12 @@ class RegisLoginController extends Controller
         $regis->username = $request->username;
         $regis->password = $request->password;
         $regis->save();
-        return back()->with('success','Registrasi Sukses!');
+        session(['userIdRegis' => $regis->user_id]);
+        return redirect()->route('user.opsiregistrasi');
     }
 
 
-    //login
+    //-----------------------------------------------------------login--------------------------------------------------------------------------
     public function indexLogin()
     {  
         $login=User::get();

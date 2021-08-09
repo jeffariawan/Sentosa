@@ -12,7 +12,7 @@
                     <div class="count-box">
                         <i class="bi bi-cone-striped"></i>
                         <div class="text-center text-lg-start">
-                            <a href="{{ route('project.PostProjectStart') }}"
+                            <a href="{{ route('user.registrasiworker') }}"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                                 <span>Worker</span> <i class="bi bi-arrow-right ml-5"></i>
                             </a>

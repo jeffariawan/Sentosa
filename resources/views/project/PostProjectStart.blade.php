@@ -10,7 +10,7 @@
             </div>
 
             <div class="col-lg-8 shadow p-3 mb-5 bg-white rounded" style='padding: 3%;'>
-                <form action="{{ route('project.PostProjectStart.store') }}" method="post" class="php-email-form">
+                <form action="{{ route('project.PostProjectStart.store') }}" method="post" class="">
                     @csrf
                     <div class="row gy-4">
 

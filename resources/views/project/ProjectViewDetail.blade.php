@@ -65,57 +65,70 @@
                         </article><!-- End blog entry -->
 
 
+
                         <div class="blog-comments">
-
-                            <h4 class="comments-count">8 Comments</h4>
-
-                            <div id="comment-1" class="comment">
-                                <div class="d-flex">
-                                    <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
-                                    <div>
-                                        <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i
-                                                    class="bi bi-reply-fill"></i> Reply</a></h5>
-                                        <time datetime="2020-01-01">01 Jan, 2020</time>
-                                        <p>
-                                            Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut
-                                            sapiente quis molestiae est qui cum soluta.
-                                            Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div><!-- End comment #1 -->
-
-
                             <?php
                             $userIdSession = session('userId');
                             if($userIdSession == $project->user_id){
-                              echo  "<h4>Projek anda sendiri</h4>";
-                            }else{
+                              echo  '<h4  class="comments-count">Daftar orang yang mengajurkan penawaran</h4>';
+                            }
+                            ?>
+                            <h4 class="comments-count">{{ $bid->count()}} Penawar</h4>
+
+                            @if($project->status == "open")
+                             @foreach($bid as $b)
+                            <div id="comment-1" class="comment">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5><a href="#">{{ $b->worker->user->name }} </a>
+                                        {{--  <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a> --}}
+                                        </h5>
+                                        <time datetime="{{ $b->created_at }}">{{ $b->created_at }}</time>
+                                        <p>
+                                            {{ $b->description }}
+                                        </p>
+                                        <form action="{{ route('project.ProjectViewDetail.setprojectwinner')}}" method="post">
+                                             <input name="bid_id" type="hidden" value="{{ $b->bid_id }}">
+                                             <input name="project_id" type="hidden" value="{{ $project->project_id }}">
+                                            <input class="btn btn-primary" type="submit" value="Pilih Sebagai pemenang">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div><!-- End comment #1 -->
+                            @endforeach
+                            @endif
+                            <?php 
+                            if($project->status != "open"){
+                            echo '<h4 class="comments-count">Projek anda sudah ada pemenang</h4>';
+                            }
+                            ?>
+                            <?php
+                            $userIdSession = session('userId');
+                            if($userIdSession != $project->user_id){
                             ?>
                             <div class="reply-form">
-                                <h4>Leave a Reply</h4>
-                                <p>Your email address will not be published. Required fields are marked * </p>
-                                <form
-                                    action="{{ route('project.ProjectViewDetail.bidstore', ['workerid' => $userIdSession, 'projectid' => $project->project_id]) }}">
+                                <h4>Buat penawaran</h4>
+                                <p>Masukan detail penawaran anda </p>
+                                <form action="{{ route('project.ProjectViewDetail.bidstore', ['userid' => $userIdSession, 'projectid' => $project->project_id]) }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             <input name="offerprice" type="text" class="form-control"
-                                                placeholder="Offer Price">
+                                                placeholder="Masukan harga penawaran anda">
                                         </div>
                                         <div class="col-md-6 form-group">
                                             <input name="totalworker" type="text" class="form-control"
-                                                placeholder="Total Worker*">
+                                                placeholder="Jumlah pekerja untuk projek ini">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col form-group">
                                             <input name="time" type="text" class="form-control"
-                                                placeholder="Time Estimation">
+                                                placeholder="waktu yang dibutuhkan untuk selesai">
                                         </div>
                                         <div class="col form-group">
                                             <input name="start" type="text" class="form-control"
-                                                placeholder="Time Estimation">
+                                                placeholder="Bisa mulai tanggal berapa">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -179,79 +192,6 @@
 
     </main><!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
 
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 text-center">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-top">
-            <div class="container">
-                <div class="row gy-4">
-                    <div class="col-lg-5 col-md-12 footer-info">
-                        <a href="index.html" class="logo d-flex align-items-center">
-                            <img src="assets/img/logo.png" alt="">
-                            <span>FlexStart</span>
-                        </a>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita
-                            valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-                        <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-2 col-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                        <h4>Contact Us</h4>
-                        <p>
-                            A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
     @endsection

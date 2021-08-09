@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Worker;
 use App\Models\RefService;
 use App\Models\RefProvince;
-use App\Models\Worker;
+use Illuminate\Http\Request;
 use App\Models\WorkerService;
 use App\Models\WorkerServiceArea;
+use App\Http\Controllers\Controller;
 
 
 
@@ -24,27 +25,47 @@ class RegistrasiWorkerController extends Controller
 
     public function store(Request $request)
     {
+        if(session('userIdRegis') == null)
+        {
+            return "Session user id regis null";
+        }
+        
+        $userIdRegis = session('userIdRegis');
+        
+        $user=User::where('user_id', '=', $userIdRegis)->first();
+        $user = $user->load('Worker');
+
+        if($user == null)
+        {
+            return "User tidak ada";
+        }
+        if($user->Worker == null)
+        {
         $worker = new Worker;
-        $worker->title = $request->title;
+        $worker->user_id = $userIdRegis;
         $worker->description = $request->description;
-        $worker->material_from = $request->materialFrom;
-        $worker->budget_range_min = $request->minBudget;
-        $worker->budget_range_max = $request->maxBudget;
-
-
+        $worker->price_range = $request->priceRange;
+        $worker->worker_level_id = 1;
         $worker->save();
-
 
         foreach($request->refServiceId as $rsi)
         {
-            $projectServiceDemand = new WorkerService;
-            $projectServiceDemand->ref_service_id = $rsi;
-            $projectServiceDemand->project_id = $project->project_id;
-            $projectServiceDemand->save();
+            $workerService = new WorkerService;
+            $workerService->ref_service_id = $rsi;
+            $workerService->worker_id = $worker->worker_id;
+            $workerService->save();
         }
-
-
+        foreach($request->refProvinceId as $rpi)
+        {
+            $workerServiceArea = new WorkerServiceArea;
+            $workerServiceArea->ref_province_id = $rpi;
+            $workerServiceArea->worker_id = $worker->worker_id;
+            $workerServiceArea->save();
+        }
         return back()->with('success','posting sukses!');
+    }else{
+        return "User sudah daftar Worker";
+    }
     
     }
 
