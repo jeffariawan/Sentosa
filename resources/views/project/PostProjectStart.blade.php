@@ -87,8 +87,8 @@
                     </div>
 
 
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-success">Next</button>
+                    <div class="col-md-12 float-right">
+                        <button type="submit" class="btn btn-success" href="{{ route('project.ProjectView') }}">Next</button>
                     </div>
                 </form>
 

@@ -6,12 +6,13 @@ use App\Http\Controllers\article\ArticleController;
 use App\Http\Controllers\user\RegisLoginController;
 use App\Http\Controllers\project\ProjectViewController;
 use App\Http\Controllers\user\OpsiRegistrasiController;
-use App\Http\Controllers\project\PostProjectStartController;
-use App\Http\Controllers\project\ProjectViewDetailController;
 use App\Http\Controllers\user\RegistrasiWorkerController;
 use App\Http\Controllers\dashboard\DashboardIndexController;
+use App\Http\Controllers\project\PostProjectStartController;
+use App\Http\Controllers\project\ProjectViewDetailController;
+use App\Http\Controllers\dashboard\DashboardPortofolioController;
 use App\Http\Controllers\dashboard\DashboardProjectDetailController;
-
+use App\Http\Controllers\dashboard\DashboardProjectPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,5 +59,9 @@ Route::post('/user/registrasiworker/store',[RegistrasiWorkerController::class,'s
 
 
 //Dashboard
-Route::get('/dashboard/index/', [DashboardIndexController::class, 'index'])->name('dashboard.index');
+Route::get('/dashboard/index', [DashboardIndexController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard/projectDetail/{projectid}', [DashboardProjectDetailController::class, 'index'])->name('dashboard.projectDetail');
+Route::get('/dashboard/portofolio', [DashboardPortofolioController::class, 'index'])->name('dashboard.portofolio');
+Route::get('/dashboard/portofolio/create',[DashboardPortofolioController::class,'create'])->name('dashboard.portofolio.create');
+Route::get('/dashboard/projectpayment/{projectid}', [DashboardProjectPaymentController::class, 'index'])->name('dashboard.projectpayment');
+Route::post('/dashboard/projectpayment/payment', [DashboardProjectPaymentController::class, 'storePayment'])->name('dashboard.projectpayment.payment');
