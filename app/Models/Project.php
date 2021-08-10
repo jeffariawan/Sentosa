@@ -23,7 +23,7 @@ class Project extends Model
     {
         return $this->hasMany(ProjectServiceDemand::class, 'project_service_demand_id', 'project_service_demand_id');
     }
-    
+
     public function Survey()
     {
         return $this->hasMany(Survey::class, 'survey_id', 'survey_id');
@@ -42,5 +42,9 @@ class Project extends Model
     public function Bid()
     {
         return $this->hasMany(Bid::class, 'bid_id', 'bid_id');
+    }
+    public function SalesH()
+    {
+        return $this->hasOne(SalesH::class, 'sales_h_id', 'bid_h_id');
     }
 }

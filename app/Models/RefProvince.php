@@ -11,7 +11,7 @@ class RefProvince extends Model
     protected $table = 'ref_province';
     protected $primaryKey = 'ref_province_id';
     protected $guarded = [];
-    
+
     public function User()
     {
         return $this->hasMany(User::class, 'user_id', 'user_id');
@@ -22,14 +22,8 @@ class RefProvince extends Model
         return $this->hasMany(WorkerServiceArea::class, 'worker_service_area_id', 'worker_service_area_id');
     }
 
-    public function RefCourier()
-    {
-        return $this->hasMany(RefCourier::class, 'ref_courier_id', 'ref_courier_id');
-    }
-
     public function Project()
     {
         return $this->hasMany(Project::class, 'project_id', 'project_id');
     }
-
 }
