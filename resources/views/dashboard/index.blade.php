@@ -1,14 +1,6 @@
-@extends('layouts.homeMain')
+@extends('layouts.dashboard')
 
-@section('container')
-
-    <!-- ======= Blog Single Section ======= -->
-    <section id="blog" class="blog">
-        <div class="container" data-aos="fade-up">
-
-            <div class="row">
-
-                <div class="col-lg-8 entries">
+@section('dashboard')
 
                     <!-- Project Anda -->
                     <?php if($projectUser != null){ ?>
@@ -58,7 +50,7 @@
                         <div class="entry-meta">
                             <h4 class="h4-sentosa">Pekerjaan Anda</h4>
                         </div>
-                        <table class="table">
+                        <table class="table">   
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -109,45 +101,6 @@
 
                     </article><!-- End Pekerjaan Anda -->
                     <?php } ?>
-
-
-                </div><!-- End blog entries list -->
-
-                <div class="col-lg-4">
-
-                    <div class="sidebar" style="padding: 0; padding-bottom:50px;">
-                        <div class="container p-4 pl-5 pb-1 mb-4" style="background-color: #1b4a9b;">
-                            <div class="row">
-                                <h1 class="sidebar-title mb-2" style="color: white;">Welcome Back!</h1>
-                            </div>
-                            <div class="row">
-                                <h3 class="sidebar-title" style="color: white;">{{ $user->name }}</h3>
-                            </div>
-                        </div>
-
-                        <div class="sidebar-item recent-posts">
-                            <div class="post-item clearfix">
-                                <h4 class="ml-4"><a href="blog-single.html">Dashboard</a></h4>
-                            </div>
-                            <div class="post-item clearfix">
-                                <h4 class="ml-4"><a href="blog-single.html">Dashboard</a></h4>
-                            </div>
-                            <div class="post-item clearfix">
-                                <h4 class="ml-4"><a href="blog-single.html">Dashboard</a></h4>
-                            </div>
-                        </div><!-- End sidebar recent posts-->
-
-                    </div><!-- End sidebar -->
-
-                </div><!-- End blog sidebar -->
-
-            </div>
-
-        </div>
-    </section><!-- End Blog Single Section -->
-
-    </main><!-- End #main -->
-
 
 
 @endsection
