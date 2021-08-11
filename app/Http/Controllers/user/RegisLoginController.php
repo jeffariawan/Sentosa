@@ -15,10 +15,10 @@ class RegisLoginController extends Controller
 
     //-----------------------------------------------------------regis--------------------------------------------------------------------------
     public function index()
-    {  
-        $user=User::get();
+    {
+        $user = User::get();
 
-        return view('user.registrasi',compact('user'));
+        return view('user.registrasi', compact('user'));
     }
 
     public function store(Request $request)
@@ -37,7 +37,7 @@ class RegisLoginController extends Controller
         $regis->username = $request->username;
         $regis->password = $request->password;
         $regis->save();
-        return back()->with('success','Registrasi Sukses!');
+        return back()->with('success', 'Registrasi Sukses!');
     }
 
     public function store1(Request $request)
@@ -49,7 +49,7 @@ class RegisLoginController extends Controller
             'password'  => 'min:5|required_with:confirm|same:confirm',
             'confirm'   => 'required'
         ];
- 
+
         $messages = [
             'name.required'          => 'Nama wajib diisi.',
             'password.required'      => 'Password wajib diisi.',
@@ -61,20 +61,20 @@ class RegisLoginController extends Controller
             'email.unique'           => 'Email sudah terdaftar.',
             'confirm.required'       => 'confirm minimal diisi dengan 5 karakter'
         ];
- 
+
         $validator = Validator::make($request->all(), $rules, $messages);
-         
-        if($validator->fails()){
+
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
- 
+
         $regis = new User;
         $regis->name = $request->name;
         $regis->email = $request->email;
         $regis->username = $request->username;
         $regis->password = $request->password;
         $regis->save();
-        return back()->with('success','Registrasi Sukses!');
+        return back()->with('success', 'Registrasi Sukses!');
     }
 
     public function store2(CreateUserRequest $request)
@@ -92,25 +92,23 @@ class RegisLoginController extends Controller
 
     //-----------------------------------------------------------login--------------------------------------------------------------------------
     public function indexLogin()
-    {  
-        $login=User::get();
+    {
+        $login = User::get();
 
-        return view('user.login',compact('login'));
+        return view('user.login', compact('login'));
     }
 
-        
-    public function validasiLogin(Request $request)
-    {  
-        
-        $user=User::where('username', '=',  $request->username)
-                ->where('password', '=',$request->password)
-                ->first();
 
-        if (is_null($user))
-        {
-            return back()->with('success','Username atau Sandi anda salah!');
-        }else
-        {
+    public function validasiLogin(Request $request)
+    {
+
+        $user = User::where('username', '=',  $request->username)
+            ->where('password', '=', $request->password)
+            ->first();
+
+        if (is_null($user)) {
+            return back()->with('success', 'Username atau Sandi anda salah!');
+        } else {
             session(['userId' => $user->user_id]);
             return redirect()->route('home');
         }
@@ -122,28 +120,26 @@ class RegisLoginController extends Controller
             'username'  => 'required',
             'password'  => 'min:5|required'
         ];
- 
+
         $messages = [
             'password.required'      => 'Password wajib diisi.',
             'password.min'           => 'Password minimal diisi dengan 5 karakter.',
             'username.required'      => 'Username wajib diisi.'
         ];
- 
+
         $validator = Validator::make($request->all(), $rules, $messages);
-         
-        if($validator->fails()){
+
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput($request->all());
         }
- 
-        $user=User::where('username', '=',  $request->username)
-                ->where('password', '=',$request->password)
-                ->first();
 
-        if (is_null($user))
-        {
-            return back()->with('success','Username atau Sandi anda salah!');
-        }else
-        {
+        $user = User::where('username', '=',  $request->username)
+            ->where('password', '=', $request->password)
+            ->first();
+
+        if (is_null($user)) {
+            return back()->with('success', 'Username atau Sandi anda salah!');
+        } else {
             session(['userId' => $user->user_id]);
             return redirect()->route('home');
         }
@@ -151,17 +147,15 @@ class RegisLoginController extends Controller
 
     public function validasiLogin2(LoginRequest $request)
     {
-        $user=User::where('username', '=',  $request->username)
-                ->where('password', '=',$request->password)
-                ->first();
+        $user = User::where('username', '=',  $request->username)
+            ->where('password', '=', $request->password)
+            ->first();
 
-        if (is_null($user))
-        {
-            return back()->with('success','Username atau Sandi anda salah!');
-        }else
-        {
+        if (is_null($user)) {
+            return back()->with('success', 'Username atau Sandi anda salah!');
+        } else {
             session(['userId' => $user->user_id]);
-            return redirect()->route('home');
+            return redirect()->route('dashboard.index');
         }
     }
 }
