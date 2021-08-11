@@ -19,9 +19,17 @@
                                 <span>Hire a Worker</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
-                            <a href="{{ route('user.login') }}"
-                                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Hire a Worker</span>
+                            <a @php
+                                $userIdSession = session('userId');
+                                $routingPostProject = '';
+                                if ($userIdSession == null) {
+                                    $routingPostProject = 'user.login';
+                                } else {
+                                    $routingPostProject = 'project.ProjectView';
+                                }
+                            @endphp href="{{ route($routingPostProject) }}"
+                                class="btn-get-started-2 scrollto d-inline-flex align-items-center justify-content-center align-self-center pl-3">
+                                <span>Find a job </span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -134,59 +142,17 @@
 
                 <header class="section-header">
                     <h2>Services</h2>
-                    <p>Veritatis et dolores facere numquam et praesentium</p>
+                    <p>Cari pekerja sesuai dengan keahliannya</p>
                 </header>
 
                 <div class="row gy-4">
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-box-custom blue">
-                            <h3>Nesciunt Mete</h3>
+                    @foreach ($refservice as $service)
+                        <div class="col-lg-4 col-md-6  " data-aos="fade-up" data-aos-delay="200">
+                            <div class="service-box-custom blue">
+                                <h3>{{ $service->name }}</h3>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-box-custom blue">
-                            <h3>Eosle Commodi</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-box-custom blue">
-                            <h3>Ledo Markt</h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-box red">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Asperiores Commodi</h3>
-                            <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit
-                                provident adipisci neque.</p>
-                            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-box purple">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Velit Doloremque.</h3>
-                            <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi
-                                at autem alias eius labore.</p>
-                            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-                        <div class="service-box pink">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Dolori Architecto</h3>
-                            <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure.
-                                Corrupti recusandae ducimus enim.</p>
-                            <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>
@@ -216,7 +182,8 @@
                                             {{ $quest->title }}
                                         </button>
                                     </h2>
-                                    <div id="faq-content-{{ $quest->faq_id }}" class="accordion-collapse collapse" data-bs-parent="#faqlist{{ $quest->faq_id }}">
+                                    <div id="faq-content-{{ $quest->faq_id }}" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqlist{{ $quest->faq_id }}">
                                         <div class="accordion-body">
                                             {{ $quest->description }}
                                         </div>
@@ -240,47 +207,45 @@
                 </header>
 
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
-                  <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                      <li data-filter="*" class="filter-active">All</li>
-                      <li data-filter=".filter-tukang">Tukang</li>
-                      <li data-filter=".filter-arsitek">Arsitek</li>
-                      <li data-filter=".filter-design">Design Interior</li>
-                    </ul>
-                  </div>
+                    <div class="col-lg-12 d-flex justify-content-center">
+                        <ul id="portfolio-flters">
+                            <li data-filter="*" class="filter-active">All</li>
+                            <li data-filter=".filter-tukang">Tukang</li>
+                            <li data-filter=".filter-arsitek">Arsitek</li>
+                            <li data-filter=".filter-design">Design Interior</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                  @foreach ($picture as $pct)
-                  @php
-                      if($pct->WorkerPortofolio->ref_service_id == 1)
-                      {
-                        $tagPortofolio = 'tukang';
-                      }else if ($pct->WorkerPortofolio->ref_service_id == 2)
-                      {
-                        $tagPortofolio = 'arsitek';
-                      }else if ($pct->WorkerPortofolio->ref_service_id == 3)
-                      {
-                        $tagPortofolio = 'design';
-                      }
-                  @endphp 
-                  
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $tagPortofolio }}">
-                        <div class="portfolio-wrap">
-                            <img src="{{ URL::asset($pct->picture_name) }}" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>{{ $pct->WorkerPortofolio->name }}</h4>
-                                <p>{{ $pct->WorkerPortofolio->description }}</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ URL::asset($pct->picture_name) }}" data-gallery="portfolioGallery"
-                                        class="portfokio-lightbox" title="{{ $pct->WorkerPortofolio->name }}"><i class="bi bi-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                    @foreach ($picture as $pct)
+                        @php
+                            if ($pct->WorkerPortofolio->ref_service_id == 1) {
+                                $tagPortofolio = 'tukang';
+                            } elseif ($pct->WorkerPortofolio->ref_service_id == 2) {
+                                $tagPortofolio = 'arsitek';
+                            } elseif ($pct->WorkerPortofolio->ref_service_id == 3) {
+                                $tagPortofolio = 'design';
+                            }
+                        @endphp
+
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $tagPortofolio }}">
+                            <div class="portfolio-wrap">
+                                <img src="{{ URL::asset($pct->picture_name) }}" class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <h4>{{ $pct->WorkerPortofolio->name }}</h4>
+                                    <p>{{ $pct->WorkerPortofolio->description }}</p>
+                                    <div class="portfolio-links">
+                                        <a href="{{ URL::asset($pct->picture_name) }}" data-gallery="portfolioGallery"
+                                            class="portfokio-lightbox" title="{{ $pct->WorkerPortofolio->name }}"><i
+                                                class="bi bi-plus"></i></a>
+                                        <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                  @endforeach
-            </div>
+                    @endforeach
+                </div>
 
         </section><!-- End Portfolio Section -->
 
@@ -295,26 +260,26 @@
                 </header>
 
                 <div class="row gy-4">
-                  @foreach ($worker as $wokr)
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="{{ URL::asset($wokr->profile_pic) }}" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    @foreach ($worker as $wokr)
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                            <div class="member">
+                                <div class="member-img">
+                                    <img src="{{ URL::asset($wokr->profile_pic) }}" class="img-fluid" alt="">
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                                <div class="member-info">
+                                    <h4>{{ $wokr->name }}</h4>
+                                    <span>{{ $wokr->description }}</span>
+                                    <p>Rp {{ $wokr->price_range }}</p>
                                 </div>
                             </div>
-                            <div class="member-info">
-                                <h4>{{ $wokr->name }}</h4>
-                                <span>{{ $wokr->description }}</span>
-                                <p>Rp {{ $wokr->price_range }}</p>
-                            </div>
                         </div>
-                    </div>
-                  @endforeach                  
+                    @endforeach
                 </div>
 
             </div>

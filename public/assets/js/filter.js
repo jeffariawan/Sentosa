@@ -29,7 +29,7 @@ function cekCheckbox() {
 }
 
 function fetchCauseAgainstCategory(id) {
-    $('.result_div').empty();
+    $('.causes_div').empty();
 
     $.ajax({
         type: 'GET',
@@ -40,6 +40,7 @@ function fetchCauseAgainstCategory(id) {
             console.log(response);
 
             response.forEach(element => {
+
                 $('.causes_div').append(`
                                         
                 <article class="entryprojectview">
