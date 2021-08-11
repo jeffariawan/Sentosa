@@ -16,6 +16,7 @@
                                     <th scope="col">description</th>
                                     <th scope="col">Service</th>
                                     <th scope="col">Action</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -25,12 +26,8 @@
                                         <td>{{ $port->name }}</td>
                                         <td>{{ $port->description }}</td>
                                         <td>{{ $port->refService->name }}</td>
-                                        <td>
-                                            <a href="#"
-                                                class="btn btn-primary">
-                                                <span>Lihat detail</span>
-                                            </a>
-                                        </td>
+                                        <th scope="row"><a href ="{{ route('dashboard.portofolio.edit', $port->worker_portofolio_id) }}"><i class="bi bi-pencil"></i><br>Edit</th>
+                                        <th scope="row"><a href ="{{ route('dashboard.portofolio.delete', $port->worker_portofolio_id) }}"><i class="bi bi-trash"></i><br>Delete</th>
                                     </tr>
                                  @endforeach
                             </tbody>
