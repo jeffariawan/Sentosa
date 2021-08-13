@@ -46,6 +46,41 @@
                                     <div class="container" data-aos="fade-up">
                                         <div class="row">
                                             <div class="entries causes_div">
+                                                <?php if ($i == 0) {
+                                                    foreach ($project as $prj) {
+                                                        echo '  <article class="entryprojectview">                                             
+                                                                                                                                                                                                                                                                <h2 class="entry-title"><i class="bi bi-house-door"></i>
+                                                                                                                                                                                                                                                                  <a href="blog-single.html">' .
+                                                            $prj->title .
+                                                            '</a>
+                                                                                                                                                                                                                                                                </h2>
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                <div class="entry-meta">
+                                                                                                                                                                                                                                                                  <ul>
+                                                                                                                                                                                                                                                                    <li class="d-flex align-items-center"><i class="bi bi-cash-coin"></i> 
+                                                                                                                                                                                                                                                                    <a href="blog-single.html">Rp.' .
+                                                            $prj->budget_range_min .
+                                                            ' - Rp.' .
+                                                            $prj->budget_range_min .
+                                                            '</a></li>
+                                                                                                                                                                                                                                                                  </ul>
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                <div class="entry-content">
+                                                                                                                                                                                                                                                                  <p>' .
+                                                            $prj->description .
+                                                            '</p>
+                                                                                                                                                                                                                                                                  <div class="read-more">
+                                                                                                                                                                                                                                                                  <a href="/ProjectViewDetail/' .
+                                                            $prj->project_id .
+                                                            '">Bid now</a>
+                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                </article>';
+                                                    }
+                                                    $i++;
+                                                } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -122,5 +157,4 @@
 
     </section>
 
-@endsection
- --}}
+@endsection --}}

@@ -4,14 +4,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\article\ArticleController;
 use App\Http\Controllers\user\RegisLoginController;
+use App\Http\Controllers\worker\WorkerViewController;
 use App\Http\Controllers\project\ProjectViewController;
 use App\Http\Controllers\user\OpsiRegistrasiController;
 use App\Http\Controllers\user\RegistrasiWorkerController;
+use App\Http\Controllers\worker\WorkerViewDetailController;
 use App\Http\Controllers\dashboard\DashboardIndexController;
 use App\Http\Controllers\project\PostProjectStartController;
 use App\Http\Controllers\project\ProjectViewDetailController;
 use App\Http\Controllers\dashboard\DashboardProfileController;
 use App\Http\Controllers\dashboard\DashboardPortofolioController;
+use App\Http\Controllers\dashboard\DashboardSalesRatingController;
 use App\Http\Controllers\dashboard\DashboardProjectDetailController;
 use App\Http\Controllers\dashboard\DashboardProjectPaymentController;
 
@@ -56,9 +59,17 @@ Route::post('/user/registrasi/store2', [RegisLoginController::class, 'store2'])-
 Route::get('/user/login', [RegisLoginController::class, 'indexLogin'])->name('user.login');
 Route::post('/user/login/submit', [RegisLoginController::class, 'validasiLogin2'])->name('user.login.submit');
 //registrasi
+
+Route::get('/user/logout', [RegisLoginController::class, 'Signout'])->name('user.logout');
+
 Route::get('/user/opsiregistrasi', [OpsiRegistrasiController::class, 'index'])->name('user.opsiregistrasi');
 Route::get('/user/registrasiworker', [RegistrasiWorkerController::class, 'index'])->name('user.registrasiworker');
 Route::post('/user/registrasiworker/store', [RegistrasiWorkerController::class, 'store'])->name('user.registrasiworker.store');
+
+//worker
+Route::get('/worker/workerview/{refserviceid}', [WorkerViewController::class, 'index'])->name('worker.workerview');
+Route::get('/worker/workerFilterResult/{id}', [WorkerViewController::class, 'workerFilterResult'])->name('worker.workerFilterResult');
+Route::get('/WorkerViewDetail/{workerid}', [WorkerViewDetailController::class, 'index'])->name('worker.WorkerViewDetail');
 
 
 //----------Dashboard
@@ -74,8 +85,12 @@ Route::get('/dashboard/portofolio/delete/{workerportofolioid}',[DashboardPortofo
 //project payment
 Route::get('/dashboard/projectpayment/{projectid}', [DashboardProjectPaymentController::class, 'index'])->name('dashboard.projectpayment');
 Route::post('/dashboard/projectpayment/payment', [DashboardProjectPaymentController::class, 'storePayment'])->name('dashboard.projectpayment.payment');
+
 //profile
 Route::get('/dashboard/profile', [DashboardProfileController::class, 'index'])->name('dashboard.profile');
 Route::get('/dashboard/profile/edit/{userid}', [DashboardProfileController::class, 'edit'])->name('dashboard.profile.edit');
 Route::post('/dashboard/profile/update/{userid}', [DashboardProfileController::class, 'update'])->name('dashboard.profile.update');
+
+Route::get('/dashboard/salesrating/{projectid}', [DashboardSalesRatingController::class, 'index'])->name('dashboard.salesrating');
+Route::post('/dashboard/salesrating/submit', [DashboardSalesRatingController::class, 'storeRating'])->name('dashboard.salesrating.store');
 

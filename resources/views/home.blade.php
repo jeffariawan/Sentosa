@@ -141,16 +141,19 @@
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <h2>Services</h2>
+                    <h2>Jasa</h2>
                     <p>Cari pekerja sesuai dengan keahliannya</p>
                 </header>
 
                 <div class="row gy-4">
                     @foreach ($refservice as $service)
                         <div class="col-lg-4 col-md-6  " data-aos="fade-up" data-aos-delay="200">
-                            <div class="service-box-custom blue">
-                                <h3>{{ $service->name }}</h3>
-                            </div>
+                            <a href="{{ route('worker.workerview', $service->ref_service_id) }}"
+                                style="color: rgb(109, 102, 102)">
+                                <div class="service-box-custom blue">
+                                    <h3>{{ $service->name }}</h3>
+                                </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>
@@ -160,94 +163,7 @@
         </section><!-- End Services Section -->
 
 
-        <!-- ======= F.A.Q Section ======= -->
-        <section id="faq" class="faq">
 
-            <div class="container" data-aos="fade-up">
-
-                <header class="section-header">
-                    <h2>F.A.Q</h2>
-                    <p>Frequently Asked Questions</p>
-                </header>
-
-                <div class="row">
-                    @foreach ($faq as $quest)
-                        <div class="col-lg-6">
-                            <!-- F.A.Q List 1-->
-                            <div class="accordion accordion-flush" id="faqlist{{ $quest->faq_id }}">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faq-content-{{ $quest->faq_id }}">
-                                            {{ $quest->title }}
-                                        </button>
-                                    </h2>
-                                    <div id="faq-content-{{ $quest->faq_id }}" class="accordion-collapse collapse"
-                                        data-bs-parent="#faqlist{{ $quest->faq_id }}">
-                                        <div class="accordion-body">
-                                            {{ $quest->description }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section><!-- End F.A.Q Section -->
-
-        <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
-
-            <div class="container" data-aos="fade-up">
-
-                <header class="section-header">
-                    <h2>Portfolio</h2>
-                    <p>Check our latest work</p>
-                </header>
-
-                <div class="row" data-aos="fade-up" data-aos-delay="100">
-                    <div class="col-lg-12 d-flex justify-content-center">
-                        <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-tukang">Tukang</li>
-                            <li data-filter=".filter-arsitek">Arsitek</li>
-                            <li data-filter=".filter-design">Design Interior</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                    @foreach ($picture as $pct)
-                        @php
-                            if ($pct->WorkerPortofolio->ref_service_id == 1) {
-                                $tagPortofolio = 'tukang';
-                            } elseif ($pct->WorkerPortofolio->ref_service_id == 2) {
-                                $tagPortofolio = 'arsitek';
-                            } elseif ($pct->WorkerPortofolio->ref_service_id == 3) {
-                                $tagPortofolio = 'design';
-                            }
-                        @endphp
-
-                        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $tagPortofolio }}">
-                            <div class="portfolio-wrap">
-                                <img src="{{ URL::asset($pct->picture_name) }}" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>{{ $pct->WorkerPortofolio->name }}</h4>
-                                    <p>{{ $pct->WorkerPortofolio->description }}</p>
-                                    <div class="portfolio-links">
-                                        <a href="{{ URL::asset($pct->picture_name) }}" data-gallery="portfolioGallery"
-                                            class="portfokio-lightbox" title="{{ $pct->WorkerPortofolio->name }}"><i
-                                                class="bi bi-plus"></i></a>
-                                        <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-        </section><!-- End Portfolio Section -->
 
         <!-- ======= Team Section ======= -->
         <section id="team" class="team">
@@ -255,8 +171,8 @@
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <h2>Team</h2>
-                    <p>Our hard working team</p>
+                    <h2>Pekerja</h2>
+                    <p>Beberapa pekerja kami</p>
                 </header>
 
                 <div class="row gy-4">
@@ -315,6 +231,42 @@
             </div>
 
         </section><!-- End Recent Blog Posts Section -->
+
+        <!-- ======= F.A.Q Section ======= -->
+        <section id="faq" class="faq">
+
+            <div class="container" data-aos="fade-up">
+
+                <header class="section-header">
+                    <h2>F.A.Q</h2>
+                    <p>Frequently Asked Questions</p>
+                </header>
+
+                <div class="row">
+                    @foreach ($faq as $quest)
+                        <div class="col-lg-6">
+                            <!-- F.A.Q List 1-->
+                            <div class="accordion accordion-flush" id="faqlist{{ $quest->faq_id }}">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#faq-content-{{ $quest->faq_id }}">
+                                            {{ $quest->title }}
+                                        </button>
+                                    </h2>
+                                    <div id="faq-content-{{ $quest->faq_id }}" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqlist{{ $quest->faq_id }}">
+                                        <div class="accordion-body">
+                                            {{ $quest->description }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section><!-- End F.A.Q Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">

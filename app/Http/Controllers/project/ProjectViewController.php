@@ -13,38 +13,37 @@ class ProjectViewController extends Controller
 {
     public function index()
     {   //untuk narik data dari tabel
-        $service=RefService::get();
-        $province=RefProvince::get();
-        $project=Project::get();
+        $service = RefService::get();
+        $province = RefProvince::get();
+        $project = Project::where('status', '=', 'open')
+            ->get();
+        $i = 0;
 
-        return view('project.ProjectView',compact('service','province','project'));
+        return view('project.ProjectView', compact('service', 'province', 'project', 'i'));
     }
 
     public function projectFilterResult($id)
     {   //untuk narik data dari tabel
-        $service=RefService::get();
-        $province=RefProvince::get();
-        $tampung =explode(",",$id);
+        $service = RefService::get();
+        $province = RefProvince::get();
+        $tampung = explode(",", $id);
 
-        $projectServiceDemand=ProjectServiceDemand::select ('*')
-        ->whereIn('ref_service_id', $tampung)
-        ->get();
+        $projectServiceDemand = ProjectServiceDemand::select('*')
+            ->whereIn('ref_service_id', $tampung)
+            ->get();
 
         $projectReturn = array();
 
-        foreach($projectServiceDemand as $psd)
-        {
+        foreach ($projectServiceDemand as $psd) {
             $projectReturn[] = $psd->project_id;
         }
 
-        $project=Project::select ('*')
-        ->whereIn('project_id', $projectReturn)
-        ->where('status','=','open')
-        ->get();
+        $project = Project::select('*')
+            ->whereIn('project_id', $projectReturn)
+            ->where('status', '=', 'open')
+            ->get();
 
 
         echo json_encode($project);
-
-
     }
 }

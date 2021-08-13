@@ -12,20 +12,18 @@
                     <article class="entry entry-single">
 
                         <div class="entry-content">
-                            <form action="{{ route('dashboard.projectpayment.payment') }}" method="post" class="">
+                            <form action="{{ route('dashboard.salesrating.store') }}" method="post" class="">
                                 {{ csrf_field() }}
+                                <h3>Berikan Rating</h3>
                                 <div class="form-group">
-                                    <label>Nomor Pembayaran : </label>
-                                    <input name="paymentNo" class="form-control" type="text" placeholder="No Pembayaran"
+                                    <label>Score : </label>
+                                    <input name="score" class="form-control" type="number" placeholder="nilai dari 1 - 5"
                                         required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nama Akun : </label>
-                                    <input name="accountName" class="form-control" type="text" placeholder="Nama akun">
-                                </div>
-                                <div class="form-group">
-                                    <label>Tanggal bayar : </label>
-                                    <input name="paymentDate" class="form-control" type="date" placeholder="Tanggal bayar">
+                                    <label>Description : </label>
+                                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1"
+                                        rows="3" placeholder="Berikan detail penilaian disini" required></textarea>
                                 </div>
                                 <input name="project_id" type="hidden" value="{{ $project->project_id }}">
                                 <div class="col-md-5">
