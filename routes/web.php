@@ -71,8 +71,14 @@ Route::get('/WorkerViewDetail/{workerid}', [WorkerViewDetailController::class, '
 //Dashboard
 Route::get('/dashboard/index', [DashboardIndexController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard/projectDetail/{projectid}', [DashboardProjectDetailController::class, 'index'])->name('dashboard.projectDetail');
+
 Route::get('/dashboard/portofolio', [DashboardPortofolioController::class, 'index'])->name('dashboard.portofolio');
 Route::get('/dashboard/portofolio/create', [DashboardPortofolioController::class, 'create'])->name('dashboard.portofolio.create');
+Route::post('/dashboard/portofolio/store', [DashboardPortofolioController::class, 'store'])->name('dashboard.portofolio.store');
+Route::get('/dashboard/portofolio/edit/{workerportofolioid}',[DashboardPortofolioController::class,'edit'])->name('dashboard.portofolio.edit');
+Route::post('/dashboard/portofolio/update/{workerportofolioid}',[DashboardPortofolioController::class,'update'])->name('dashboard.portofolio.update');
+Route::get('/dashboard/portofolio/delete/{workerportofolioid}',[DashboardPortofolioController::class,'destroy'])->name('dashboard.portofolio.delete');
+
 Route::get('/dashboard/projectpayment/{projectid}', [DashboardProjectPaymentController::class, 'index'])->name('dashboard.projectpayment');
 Route::post('/dashboard/projectpayment/payment', [DashboardProjectPaymentController::class, 'storePayment'])->name('dashboard.projectpayment.payment');
 Route::get('/dashboard/salesrating/{projectid}', [DashboardSalesRatingController::class, 'index'])->name('dashboard.salesrating');
