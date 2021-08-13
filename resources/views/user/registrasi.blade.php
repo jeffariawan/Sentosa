@@ -24,13 +24,23 @@
                         <div class="col text-center">
                             <h1>Registrasi</h1>
                         </div>
-                        <div class="form-group">
-                            <h6>Nama</h6>
-                            <input name="name" type="text" class="form-control" placeholder="Name"
-                                value="{{ old('name') }}">
-                            @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                            @endif
+                        <div class="row gy-4 mt-2">
+                            <div class="col-md-6">
+                                <h6>Nama</h6>
+                                <input name="name" type="text" class="form-control" placeholder="Name"
+                                    value="{{ old('name') }}">
+                                @if ($errors->has('name'))
+                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Username</h6>
+                                <input name="username" type="text" class="form-control" placeholder="Username"
+                                    value="{{ old('username') }}">
+                                @if ($errors->has('username'))
+                                    <span class="text-danger">{{ $errors->first('username') }}</span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group mt-4">
@@ -43,12 +53,31 @@
                         </div>
 
                         <div class="form-group mt-4">
-                            <h6>Username</h6>
-                            <input name="username" type="text" class="form-control" placeholder="Username"
-                                value="{{ old('username') }}">
-                            @if ($errors->has('username'))
-                                <span class="text-danger">{{ $errors->first('username') }}</span>
+                            <h6>Age</h6>
+                            <input name="age" type="text" class="form-control" placeholder="Your Age"
+                                value="{{ old('age') }}">
+                            @if ($errors->has('age'))
+                                <span class="text-danger">{{ $errors->first('age') }}</span>
                             @endif
+                        </div>
+
+                        <div class="row gy-4 mt-2">
+                            <div class="col-md-6">
+                                <h6>Phone Number</h6>
+                                <input name="phone" type="phone" class="form-control" placeholder="Phone Number"
+                                    value="{{ old('phone') }}">
+                                @if ($errors->has('phone'))
+                                    <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Province</h6>
+                                <select name="refProvinceId" class="selectpicker" data-live-search="true" required>
+                                    @foreach ($province as $prvc)
+                                        <option value="{{ $prvc->ref_province_id }}">{{ $prvc->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="row gy-4 mt-2">
@@ -77,7 +106,7 @@
                                     </label>
                                 </div>
 
-                                <button class="btn btn-primary mt-4" href="{{ route('user.login') }}">Submit</button>
+                                <button class="btn btn-primary mt-4" >Submit</button>
                             </div>
                         </div>
                 </div>

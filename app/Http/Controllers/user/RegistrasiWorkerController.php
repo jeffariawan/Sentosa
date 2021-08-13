@@ -62,7 +62,7 @@ class RegistrasiWorkerController extends Controller
             $workerServiceArea->worker_id = $worker->worker_id;
             $workerServiceArea->save();
         }
-        return back()->with('success','posting sukses!');
+        return redirect()->route('user.login');
     }else{
         return "User sudah daftar Worker";
     }

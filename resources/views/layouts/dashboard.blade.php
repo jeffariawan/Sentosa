@@ -28,13 +28,13 @@
 
                         <div class="sidebar-item recent-posts">
                             <div class="post-item clearfix">
-                                <h4 class="ml-4"><a href="blog-single.html">Profile</a></h4>
+                                <h4 class="ml-4"><a href="{{ route('dashboard.profile') }}">Profile</a></h4>
                             </div>
                             <div class="post-item clearfix">
-                                <h4 class="ml-4"><a href="blog-single.html">Portofolio</a></h4>
+                                <h4 class="ml-4"><a href="{{ route('dashboard.portofolio') }}">Portofolio</a></h4>
                             </div>
                             <div class="post-item clearfix">
-                                <h4 class="ml-4"><a href="blog-single.html">Dashboard</a></h4>
+                                <h4 class="ml-4"><a href="{{ route('dashboard.index') }}">Dashboard</a></h4>
                             </div>
                         </div><!-- End sidebar recent posts-->
 

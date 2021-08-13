@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Models\User;
+use App\Models\RefProvince;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
@@ -17,8 +18,9 @@ class RegisLoginController extends Controller
     public function index()
     {
         $user = User::get();
+        $province = RefProvince::get();
 
-        return view('user.registrasi', compact('user'));
+        return view('user.registrasi', compact('user','province'));
     }
 
     public function store(Request $request)
@@ -28,6 +30,7 @@ class RegisLoginController extends Controller
             'email'     => 'required|email|unique:user',
             'username'  => 'required',
             'password'  => 'min:5|required_with:confirm|same:confirm',
+            'age'       => 'required',
             'confirm'   => 'min:5'
         ]);
         //untuk insert ke tabel
@@ -36,6 +39,9 @@ class RegisLoginController extends Controller
         $regis->email = $request->email;
         $regis->username = $request->username;
         $regis->password = $request->password;
+        $regis->age = $request->age;
+        $regis->phone = $request->phone;
+        $regis->ref_province_id = $request->refProvinceId;
         $regis->save();
         return back()->with('success', 'Registrasi Sukses!');
     }
@@ -47,7 +53,8 @@ class RegisLoginController extends Controller
             'email'     => 'required|email|unique:user',
             'username'  => 'required',
             'password'  => 'min:5|required_with:confirm|same:confirm',
-            'confirm'   => 'required'
+            'age'       => 'required',
+            'confirm'   => 'min:5'
         ];
 
         $messages = [
@@ -59,7 +66,8 @@ class RegisLoginController extends Controller
             'email.required'         => 'Email wajib diisi.',
             'email.email'            => 'Email tidak valid.',
             'email.unique'           => 'Email sudah terdaftar.',
-            'confirm.required'       => 'confirm minimal diisi dengan 5 karakter'
+            'age.required'           => 'wajib diisi.',
+            'confirm.min'       => 'confirm minimal diisi dengan 5 karakter'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -73,6 +81,9 @@ class RegisLoginController extends Controller
         $regis->email = $request->email;
         $regis->username = $request->username;
         $regis->password = $request->password;
+        $regis->age = $request->age;
+        $regis->phone = $request->phone;
+        $regis->ref_province_id = $request->refProvinceId;
         $regis->save();
         return back()->with('success', 'Registrasi Sukses!');
     }
@@ -84,6 +95,9 @@ class RegisLoginController extends Controller
         $regis->email = $request->email;
         $regis->username = $request->username;
         $regis->password = $request->password;
+        $regis->age = $request->age;
+        $regis->phone = $request->phone;
+        $regis->ref_province_id = $request->refProvinceId;
         $regis->save();
         session(['userIdRegis' => $regis->user_id]);
         return redirect()->route('user.opsiregistrasi');

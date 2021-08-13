@@ -93,8 +93,8 @@ class DashboardPortofolioController extends Controller
 
     public function update(Request $request, $worker_portofolio_id)
     {
-        $workerPortofoli=WorkerPortofolio::where('worker_portofolio_id', '=', $worker_portofolio_id)->first();
-        $workerPortofoli->update([
+        $workerPortofolio=WorkerPortofolio::where('worker_portofolio_id', '=', $worker_portofolio_id)->first();
+        $workerPortofolio->update([
             'name'=>$request->name,
             'description'=>$request->description,
             'ref_service_id'=>$request->refServiceId
