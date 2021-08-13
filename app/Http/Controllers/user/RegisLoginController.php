@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class RegisLoginController extends Controller
 {
@@ -157,5 +157,11 @@ class RegisLoginController extends Controller
             session(['userId' => $user->user_id]);
             return redirect()->route('dashboard.index');
         }
+    }
+
+    public function Signout()
+    {
+        Session::flush();
+        return redirect()->route('home');
     }
 }

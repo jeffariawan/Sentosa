@@ -43,29 +43,41 @@
                             <p>
                                 {{ $province->name }}
                             </p>
-                            <h4 class="comments-count">Tanggal mulai</h4>
-                            <p>
-                                <?php
-                                $date = date_create($project->project_start_dt);
-                                echo date_format($date, 'Y-m-d');
-                                ?>
-                            </p>
-                            <h4 class="comments-count">Pekiraan tanggal selesai</h4>
-                            <p>
-                                <?php
-                                $date = $project->project_start_dt;
-                                echo date('Y-m-d', strtotime($date . ' + ' . $bid->time_estimation . 'days'));
-                                ?>
-                            </p>
                             <h4 class="comments-count">Status pekerjaan</h4>
                             <p>
                                 {{ $project->status }}
                             </p>
-                            <a href="{{ route('dashboard.projectpayment', ['projectid' => $project->project_id]) }}"
-                                class="btn btn-primary">
-                                <span>Pekerjaan sudah selesai</span>
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
+                            @if ($project->status == 'progress') '
+                                <h4 class="comments-count">Tanggal mulai</h4>
+                                <p>
+                                    <?php
+                                    $date = date_create($project->project_start_dt);
+                                    echo date_format($date, 'Y-m-d');
+                                    ?>
+                                </p>
+                                <h4 class="comments-count">Pekiraan tanggal selesai</h4>
+                                <p>
+                                    <?php
+                                    $date = $project->project_start_dt;
+                                    echo date('Y-m-d', strtotime($date . ' + ' . $bid->time_estimation . 'days'));
+                                    ?>
+                                </p>
+                            @endif
+
+                            @if ($project->user_id == $user->user_id && $project->status == 'progress')
+                                <a href="{{ route('dashboard.projectpayment', ['projectid' => $project->project_id]) }}"
+                                    class="btn btn-primary">
+                                    <span>Pekerjaan sudah selesai</span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            @endif
+                            @if ($project->user_id == $user->user_id && $project->status == 'Finish')
+                                <a href="{{ route('dashboard.salesrating', ['projectid' => $project->project_id]) }}"
+                                    class="btn btn-primary">
+                                    <span>Beri Penilaian</span>
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>
+                            @endif
                         </div>
 
 

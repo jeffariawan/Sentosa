@@ -34,7 +34,8 @@
                  <li class="nav-item">
                      <a class="" href="{{ route('user.login') }}">Login</a>
                  </li>
-                 <a href="{{ route('user.registrasi') }}">Registrasi</a>
+                 <li>
+                     <a href="{{ route('user.registrasi') }}">Registrasi</a>
                  </li>
                  <?php
                  }
@@ -42,10 +43,8 @@
                  {
                      $usernameSession = $userSession->username;
                     ?>
-                 <li class="nav-item nav-resp-li">
-                     <a class="nav-link disabled" href="#" tabindex="-1">
-                         <?php echo 'Selamat datang ' . $usernameSession; ?>
-                     </a>
+                 <li>
+                     <a href="{{ route('user.logout') }}">Sign out</a>
                  </li>
                  <?php }  ?>
 
