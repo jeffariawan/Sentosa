@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>FlexStart Bootstrap Template - Index</title>
+  <title>Sentosa</title>
   <meta content="" name="description">
 
   <meta content="" name="keywords">
@@ -71,7 +71,7 @@ rel="stylesheet"
           <div class="col-lg-5 col-md-12 footer-info">
             <a href="index.html" class="logo d-flex align-items-center">
               <img src="assets/img/logo.png" alt="">
-              <span>FlexStart</span>
+              <span>Sentosa</span>
             </a>
             <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
             <div class="social-links mt-3">

@@ -58,7 +58,7 @@ Route::post('/user/registrasi/store2', [RegisLoginController::class, 'store2'])-
 //login
 Route::get('/user/login', [RegisLoginController::class, 'indexLogin'])->name('user.login');
 Route::post('/user/login/submit', [RegisLoginController::class, 'validasiLogin2'])->name('user.login.submit');
-//registrasi
+//registrasi worker
 
 Route::get('/user/logout', [RegisLoginController::class, 'Signout'])->name('user.logout');
 
