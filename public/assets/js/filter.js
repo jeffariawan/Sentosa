@@ -124,7 +124,7 @@ function fetchCauseAgainstCategoryWorker(id) {
                 <div class="entry-content">
                   <p>${element.description}</p>
                   <div class="read-more">
-                  <a href="/WorkerViewDetail/${element.worker_id}">Lihat Detail</a>
+                  <a href="/WorkerViewDetail/${element.user_id}">Lihat Detail</a>
                   </div>
                 </div>
                 

@@ -164,6 +164,7 @@ rel="stylesheet"
   <!-- Template Main JS File -->
   {{-- <script src="assets/js/main.js"></script> --}}
   <script src="{{ URL::asset('assets/js/main.js') }}"></script>
+  <script id="chataja-script" src="https://widget.chataja.co.id/chatwidget-embed.js?key=cd221119168e452ea1ebf8c5a142843f4b1edfa8"></script>
 
 </body>
 

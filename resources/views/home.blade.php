@@ -145,7 +145,7 @@
 
                 <div class="row gy-4">
                     @foreach ($refservice as $service)
-                        <div class="col-lg-4 col-md-6  " data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-lg-4 col-md-6" style="text-align: center;" data-aos="fade-up" data-aos-delay="200">
                             <a href="{{ route('worker.workerview', $service->ref_service_id) }}"
                                 style="color: rgb(109, 102, 102)">
                                 <div class="service-box-custom blue">
@@ -164,7 +164,7 @@
 
 
         <!-- ======= Team Section ======= -->
-        <section id="team" class="team">
+        <section id="team" class="team" style="padding-top:0 !important;">
 
             <div class="container" data-aos="fade-up">
 
@@ -178,19 +178,22 @@
                         <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                             <div class="member">
                                 <div class="member-img">
-                                    <img src="{{ URL::asset($wokr->profile_pic) }}" class="img-fluid" alt="">
+                                    <img src="https://cdn.discordapp.com/attachments/794079381462581288/875602708923580486/account-avatar-profile-human-man-user-30448.webp"
+                                    alt="Admin" class="rounded-circle" width="150">
                                     <div class="social">
                                         <a href=""><i class="bi bi-twitter"></i></a>
                                         <a href=""><i class="bi bi-facebook"></i></a>
                                         <a href=""><i class="bi bi-instagram"></i></a>
-                                        <a href=""><i class="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
+                                <a  href="/WorkerViewDetail/{{ $wokr->user_id }}'">
                                 <div class="member-info">
-                                    <h4>{{ $wokr->name }}</h4>
-                                    <span>{{ $wokr->description }}</span>
-                                    <p>Rp {{ $wokr->price_range }}</p>
+                                    <h4>{{$wokr->User->name  }}</h4>
+                                    <p style="float-left">Kisaran gaji {{ $wokr->price_range }}</p>
+                                    <span style="  text-align: justify;
+                                    text-justify: inter-word;">{{ Str::limit($wokr->description, 200) }}</span>
                                 </div>
+                            </a>
                             </div>
                         </div>
                     @endforeach
