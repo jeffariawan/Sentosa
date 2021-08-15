@@ -9,13 +9,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 data-aos="fade-up">Carilah pekerja yang terbaik untuk membangun rumah mu</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">Rumah adalah tempat di mana kita harus merasa aman dan nyaman.</h2>
+                    <h1 data-aos="fade-up">Carilah pekerja yang terbaik untuk membangun rumah anda</h1>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Kami akan menjadi perantara anda untuk mencari projek dan pekerja yang handal</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
-                            <a href="{{ route('project.PostProjectStart') }}"
+                            <a href="{{ route('project.PostProjectStart') }}" style="width: 220px !important;"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Hire a Worker</span>
+                                <span>Cari Pekerja</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                             <a @php
@@ -26,9 +26,9 @@
                                 } else {
                                     $routingPostProject = 'project.ProjectView';
                                 }
-                            @endphp href="{{ route($routingPostProject) }}"
+                            @endphp href="{{ route($routingPostProject) }}" style="width: 220px !important;"
                                 class="btn-get-started-2 scrollto d-inline-flex align-items-center justify-content-center align-self-center pl-3">
-                                <span>Find a job </span>
+                                <span>Cari Projek </span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
