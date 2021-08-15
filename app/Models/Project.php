@@ -45,6 +45,6 @@ class Project extends Model
     }
     public function SalesH()
     {
-        return $this->hasOne(SalesH::class, 'sales_h_id', 'bid_h_id');
+        return $this->hasOne(SalesH::class, 'project_id', 'project_id');
     }
 }

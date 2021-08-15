@@ -21,6 +21,7 @@ class ProjectViewDetailController extends Controller
             ->first();
         $province = RefProvince::where('ref_province_id', '=', $project->ref_province_id)
             ->first();
+        $bid = [];    
         $bid = Bid::with('worker.user')->where('project_id', '=', $projectid)
             ->get();
         return view('project.ProjectViewDetail', compact('project', 'user', 'province', 'bid'));
