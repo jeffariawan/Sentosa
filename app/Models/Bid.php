@@ -19,9 +19,12 @@ class Bid extends Model
     {
         return $this->belongsTo(Worker::class, 'worker_id', 'worker_id');
     }
-
     public function Project()
     {
         return $this->belongsTo(Project::class, 'project_id', 'project_id');
+    }
+    public function BidComment()
+    {
+        return $this->hasMany(BidComment::class, 'bid_comment_id', 'bid_comment_id');
     }
 }

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>Hello, world!</title>
+    <title>Sentosa!</title>
   </head>
   <body>
 
