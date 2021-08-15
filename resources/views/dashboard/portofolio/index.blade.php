@@ -6,15 +6,15 @@
                     <article class="entry entry-single">
                         <div class="entry-meta">
                             <h4 class="h4-sentosa">Portofolio Anda</h4>
-                            <p class="lead"><a href="{{ route('dashboard.portofolio.create') }}">Tambah Portofolio</a></p>
+                            <p class="lead "><a href="{{ route('dashboard.portofolio.create') }}">Tambah Portofolio</a></p>
                         </div>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">name</th>
-                                    <th scope="col">description</th>
-                                    <th scope="col">Service</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Keahlian</th>
                                     <th scope="col">Action</th>
                                     <th></th>
                                 </tr>

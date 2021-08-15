@@ -104,10 +104,6 @@
                                         <div class="mb-3">
                                             <p>{{ $worker->WorkerLevel->name }}</p>
                                         </div>
-                                        <small>Tingkat Pekerja</small>
-                                        <div class="mb-3">
-                                            <p>{{ $worker->WorkerLevel->name }}</p>
-                                        </div>
                                     @endif
                                 </div>
                             </div>

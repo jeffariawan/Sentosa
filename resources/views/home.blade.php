@@ -218,11 +218,11 @@
                         <div class="col-lg-4">
                             <div class="post-box">
 
-                                <div class="post-img"><img src="{{ URL::asset($artc->picture) }}" class="img-fluid"
+                                <div class="post-img"><img src="{{ URL::asset($artc->picture) }}" style="width:500px;height: 250px" class="img-fluid"
                                         alt=""></div>
                                 <span class="post-date">{{ $artc->created_at }}</span>
                                 <h3 class="post-title">{{ $artc->title }}</h3>
-                                <a href="blog-singe.html" class="readmore stretched-link mt-auto"><span>Read More</span><i
+                                <a href="{{ route('article.index') }}" class="readmore stretched-link mt-auto"><span>Read More</span><i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>

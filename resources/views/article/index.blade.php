@@ -27,7 +27,7 @@
             <article class="entry">
 
               <div class="entry-img center">
-                <img src="{{ URL::asset($artc->picture) }}" alt="" class="img-fluid">
+                <img src="{{ URL::asset($artc->picture) }}" style="width:900px;height: 450px" alt="" class="img-fluid">
               </div>
 
               <h2 class="entry-title">

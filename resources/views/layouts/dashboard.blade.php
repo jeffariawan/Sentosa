@@ -36,6 +36,12 @@
                             <div class="post-item clearfix">
                                 <h4 class="ml-4"><a href="{{ route('dashboard.portofolio') }}">Portofolio</a></h4>
                             </div>
+                            <div class="post-item clearfix">
+                                <h4 class="ml-4"><a href="{{ route('project.PostProjectStart') }}">Buat project</a></h4>
+                            </div>
+                            <div class="post-item clearfix">
+                                <h4 class="ml-4"><a href="{{ route('project.ProjectView') }}">Cari project</a></h4>
+                            </div>
                         </div><!-- End sidebar recent posts-->
 
                     </div><!-- End sidebar -->

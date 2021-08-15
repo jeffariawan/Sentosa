@@ -12,9 +12,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Tittle</th>
-                                    <th scope="col">Final Price</th>
-                                    <th scope="col">Project Start</th>
+                                    <th scope="col">Nama project</th>
+                                    <th scope="col">Harga akhir</th>
+                                    <th scope="col">Tanggal mulai</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
 
@@ -54,9 +54,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Tittle</th>
-                                    <th scope="col">Income</th>
-                                    <th scope="col">Project Status</th>
+                                    <th scope="col">Nama project</th>
+                                    <th scope="col">Pendapatan</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Bid Status</th>
                                     <th scope="col">Action</th>
 
