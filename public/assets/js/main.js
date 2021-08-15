@@ -297,7 +297,7 @@ function resize() {;
   if ($(window).width() < 700) 
   {
     $('.filter-shadow-sentosa').removeClass('shadow');
-  $( ".img-login-sentosa" ).remove();
+    $( ".img-login-sentosa" ).remove();
 
   }else{
     $('.filter-shadow-sentosa').addClass('shadow');

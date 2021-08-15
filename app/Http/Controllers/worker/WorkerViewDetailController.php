@@ -15,15 +15,24 @@ use App\Http\Controllers\Controller;
 
 class WorkerViewDetailController extends Controller
 {
-    public function index($workerid)
-    {   //untuk narik data dari tabel
+    public function index($userId)
+    {
+        $user = User::where('user_id', '=', $userId)
+            ->first();
+        $refProvince = RefProvince::where('ref_province_id', '=', $user->ref_province_id)
+            ->first();
+        $worker = Worker::where('user_id', '=', $userId)
+            ->first();
+        $workerService = []; 
 
-        $user = User::where('user_id', '=', $project->user_id)
-            ->first();
-        $province = RefProvince::where('ref_province_id', '=', $project->ref_province_id)
-            ->first();
-        $bid = Bid::with('worker.user')->where('project_id', '=', $projectid)
-            ->get();
-        return view('project.ProjectViewDetail', compact('project', 'user', 'province', 'bid'));
+        if($worker == null){
+            return view('worker.WorkerViewDetail', compact('user','worker','refProvince','workerService'));
+        }
+            
+        $workerService=WorkerService::with('refService')
+        ->where('worker_id', '=', $worker->worker_id)
+            ->get();  
+
+        return view('worker.WorkerViewDetail', compact('user','worker','refProvince','workerService'));
     }
 }
