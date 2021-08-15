@@ -37,9 +37,8 @@
                         </div>
 
                         <div class="col-md-12">
-                            <h4>What is your speciality</h4>
-                            <p>Enter up to 5 skills that best describe your skills. You will use these skills
-                                to find projects that fit you.</p>
+                            <h4>Provinsi</h4>
+                            <p>Di daerah mana saja anda bisa mengambil pekerjaan.</p>
                             <select name="refProvinceId[]" class="selectpicker" multiple data-live-search="true">
                                 @foreach ($province as $prvc)
                                 <option value="{{ $prvc->ref_province_id }}">{{ $prvc->name }}</option>

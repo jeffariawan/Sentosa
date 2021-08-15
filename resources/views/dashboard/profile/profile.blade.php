@@ -31,10 +31,6 @@
                                         </li>
                                     </ul>
                                 @endforeach
-                                <div class="col-sm-9 text-secondary mt-2 ml-3">
-                                    <input type="submit" class="btn btn-primary px-4" value="Edit Service"><a
-                                        href="{{ route('dashboard.profile') }}"></a>
-                                </div>
                             @else
                                 <a href="{{ route('user.opsiregistrasi') }}"
                                     class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
@@ -88,37 +84,31 @@
                                     href="{{ route('dashboard.profile.edit', $user->user_id) }}">Edit</a>
                             </div>
                         </div>
-
                     </div>
                     <div class="row gutters-sm">
                         <div class="mb-3">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="d-flex align-items-center mb-3"><i
-                                            class="material-icons text-info mr-2">Detail Pekerja</i></h6>
-                                    <small>Deskripsi</small>
-                                    <div class="mb-3">
-                                        <p>{{ $worker->description }}</p>
-                                    </div>
-                                    <small>Kisaran Harga</small>
-                                    <div class="mb-3">
-                                        <p>{{ $worker->price_range }}</p>
-                                    </div>
-                                    <small>One Page</small>
-                                    <div class="progress mb-3" style="height: 5px">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%"
-                                            aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <small>Mobile Template</small>
-                                    <div class="progress mb-3" style="height: 5px">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%"
-                                            aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <small>Backend API</small>
-                                    <div class="progress mb-3" style="height: 5px">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%"
-                                            aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                            <div class="card">
+                                <div class="card-body">  
+                                    @if ($worker != null)
+                                        <h6 class="d-flex align-items-center mb-3"><i
+                                                class="material-icons text-info mr-2">Detail Pekerja</i></h6>
+                                        <small>Deskripsi</small>
+                                        <div class="mb-3">
+                                            <p>{{ $worker->description }}</p>
+                                        </div>
+                                        <small>Kisaran Harga</small>
+                                        <div class="mb-3">
+                                            <p>{{ $worker->price_range }}</p>
+                                        </div>
+                                        <small>Tingkat Pekerja</small>
+                                        <div class="mb-3">
+                                            <p>{{ $worker->WorkerLevel->name }}</p>
+                                        </div>
+                                        <small>Tingkat Pekerja</small>
+                                        <div class="mb-3">
+                                            <p>{{ $worker->WorkerLevel->name }}</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

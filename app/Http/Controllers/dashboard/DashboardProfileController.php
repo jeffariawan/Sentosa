@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Models\User;
 use App\Models\Worker;
+use App\Models\RefService;
 use App\Models\RefProvince;
 use Illuminate\Http\Request;
 use App\Models\WorkerService;
@@ -39,26 +40,19 @@ class DashboardProfileController extends Controller
 
     public function edit($user_id)
     {
-        //untuk get province di bawah foto
         $userId = session('userId');
         if (is_null($userId)) {
             return view('user.login',compact('userId'));
         }
         $user = User::where('user_id', '=', $userId)
             ->first();
-        $refProv = RefProvince::where('ref_province_id', '=', $user->ref_province_id)
+        $worker = Worker::where('user_id', '=', $userId)
             ->first();
-        //untuk post edit
+        $workerService=WorkerService::where('worker_id', '=', $worker)->get();
+        $refService=RefService::get();
         $refProvince=RefProvince::get();
-        $userId = session('userId');
-        if (is_null($userId)) {
-            return view('user.login',compact('userId'));
-        }
-        $user = User::where('user_id', '=', $userId)
-            ->first();
-        
         $user = User::find($user_id);
-        return view('dashboard.profile.editprofile', compact('refProvince','user','refProv'));
+        return view('dashboard.profile.editprofile', compact('refProvince','user','refService','worker','workerService'));
     }
 
     public function update(Request $request, $user_id)
@@ -70,6 +64,18 @@ class DashboardProfileController extends Controller
             'phone'=>$request->phone,
             'age'=>$request->age,
             'ref_province_id'=>$request->refProvinceId
+        ]);
+
+
+        $worker=Worker::where('user_id', '=', $user_id)->first();
+        $worker->update([
+            'description'=>$request->description,
+            'price_range'=>$request->priceRange, 
+        ]);
+        
+        $workerService=WorkerService::where('worker_id', '=', $user_id)->get();
+        $workerService->update([
+            'ref_service_id'=>$request->refService,
         ]);
         return back()->with('success','Ubah Data Suksessssss!');
     }

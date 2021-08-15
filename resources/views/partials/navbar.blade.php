@@ -1,7 +1,7 @@
  <nav class="navbar navbar-expand-lg navbar-light ">
      <div class="container-fluid">
          <a class="navbar-brand" href="#">
-             <img src="{{ URL::asset('assets/img/home1.png') }}" width="90" height="50"
+             <img src="{{ URL::asset('assets/img/logosentosa.png') }}" width="90" height="50"
                  class="d-inline-block align-top" alt="">
              Sentosa
          </a>
