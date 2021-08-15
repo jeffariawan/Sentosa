@@ -90,13 +90,15 @@ function cekCheckboxWorker() {
         $('.causes_div_worker').empty();
     } else {
     console.log(ids);
-        fetchCauseAgainstCategoryworker(ids);
+    console.log('test');
+    fetchCauseAgainstCategoryWorker(ids);
     }
 }
 
 function fetchCauseAgainstCategoryWorker(id) {
+    console.log('test2');
+
     $('.causes_div_worker').empty();
-    console.log('3');
 
     $.ajax({
         type: 'GET',
