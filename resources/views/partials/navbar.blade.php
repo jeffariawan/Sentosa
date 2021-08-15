@@ -46,7 +46,7 @@
                      $usernameSession = $userSession->username;
                     ?>
                  <li>
-                     <a href="{{ route('user.logout') }}">Sign out</a>
+                     <a href="{{ route('user.logout') }}">Logout</a>
                  </li>
                  <?php }  ?>
 

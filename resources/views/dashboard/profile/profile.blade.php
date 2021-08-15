@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://cdn.discordapp.com/attachments/794079381462581288/875602708923580486/account-avatar-profile-human-man-user-30448.webp"
+                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                                     alt="Admin" class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <h4>{{ $user->name }}</h4>
