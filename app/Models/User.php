@@ -24,6 +24,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Worker::class, 'worker_id', 'worker_id');
     }
+    public function BidComment()
+    {
+        return $this->hasMany(BidComment::class, 'bid_comment_id', 'bid_comment_id');
+    }
    
     protected $hidden = [
         'password',

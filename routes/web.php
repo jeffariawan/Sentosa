@@ -47,6 +47,8 @@ Route::get('/project/ProjectView/show', [ProjectViewController::class, 'show'])-
 //projectviewdetail
 Route::get('/ProjectViewDetail/{projectid}', [ProjectViewDetailController::class, 'index'])->name('project.ProjectViewDetail');
 Route::get('/project/ProjectViewDetail/bidstore/{userid}/{projectid}', [ProjectViewDetailController::class, 'BidStore'])->name('project.ProjectViewDetail.bidstore');
+Route::get('/project/ProjectViewDetail/commentStore', [ProjectViewDetailController::class, 'CommentStore'])->name('project.ProjectViewDetail.commentStore');
+
 Route::post('/project/ProjectViewDetail/setprojectwinner', [ProjectViewDetailController::class, 'SetProjectWinner'])->name('project.ProjectViewDetail.setprojectwinner');
 
 

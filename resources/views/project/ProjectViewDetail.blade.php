@@ -48,20 +48,6 @@
                                 </p>
                             </div>
 
-                            <div class="entry-footer">
-                                <i class="bi bi-folder"></i>
-                                <ul class="cats">
-                                    <li><a href="#">Business</a></li>
-                                </ul>
-
-                                <i class="bi bi-tags"></i>
-                                <ul class="tags">
-                                    <li><a href="#">Creative</a></li>
-                                    <li><a href="#">Tips</a></li>
-                                    <li><a href="#">Marketing</a></li>
-                                </ul>
-                            </div>
-
                         </article><!-- End blog entry -->
 
 
@@ -104,6 +90,41 @@
                                             </div>
                                         </div>
                                     </div><!-- End comment #1 -->
+
+                                    <div id="comment-reply-1" class="comment comment-reply">
+                                        <div class="d-flex">
+                                            <div>
+                                                <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i
+                                                            class="bi bi-reply-fill"></i> Reply</a></h5>
+                                                <time datetime="2020-01-01">01 Jan, 2020</time>
+                                                <p>
+                                                    Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam
+                                                    aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed
+                                                    necessitatibus aut est. Eum officiis sed repellat maxime vero nisi
+                                                    natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- End comment reply #1-->
+
+                                    <div id="comment-reply-1" class="comment comment-reply">
+                                        <form
+                                            action="{{ route('project.ProjectViewDetail.commentStore') }}">
+                                            @csrf
+                                            <div class="row">
+                                                <input name="bid_id" type="hidden" value="xm234jq">
+                                                <input name="user_id" type="hidden" value="xm234jq">
+                                                <div class="col form-group">
+                                                    <textarea name="desc" class="form-control"
+                                                        placeholder="Tulis pesan anda"></textarea>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Tinggalkan Pesan</button>
+                                        </form>
+                                    </div>
+
+
                                 @endforeach
                             @endif
                             <?php

@@ -32,8 +32,6 @@
                             </form>
                         </div>
 
-
-
                     </article><!-- End blog entry -->
 
                 </div><!-- End blog entries list -->

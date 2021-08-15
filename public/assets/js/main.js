@@ -297,6 +297,8 @@ function resize() {;
   if ($(window).width() < 700) 
   {
     $('.filter-shadow-sentosa').removeClass('shadow');
+  $( ".img-login-sentosa" ).remove();
+
   }else{
     $('.filter-shadow-sentosa').addClass('shadow');
   }
@@ -310,8 +312,23 @@ function resize() {;
 
 }
 
-
 //watch window resize
 $(window).on('resize', function() {
   resize()
 });
+
+if ($(window).width() < 700) 
+{
+  $('.filter-shadow-sentosa').removeClass('shadow');
+  $( ".img-login-sentosa" ).remove();
+  
+}else{
+  $('.filter-shadow-sentosa').addClass('shadow');
+}
+//navbar agar tidak mepet saat tampilan mobile
+if ($(window).width() < 700) 
+{
+  $('.nav-resp-li').addClass('pl-4');
+}else{
+  $('.nav-resp-li').removeClass('pl-5');
+}

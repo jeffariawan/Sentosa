@@ -6,7 +6,7 @@
              Sentosa
          </a>
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" href="{{ route('home') }}">
              <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse " id="navbarNav">
@@ -14,9 +14,11 @@
                  <li class="nav-item nav-resp-li">
                      <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
                  </li>
+                 @if (session('userId') != null)
                  <li class="nav-item nav-resp-li">
-                     <a class="nav-link" href="{{ route('user.login') }}">Features</a>
+                     <a class="nav-link" href="{{ route('dashboard.index') }}">Dashboard</a>
                  </li>
+                 @endif
                  <li class="nav-item nav-resp-li">
                      <a class="nav-link" href="{{ route('article.index') }}">Blog</a>
                  </li>
