@@ -6,7 +6,7 @@
                     <article class="entry entry-single">
                         <div class="entry-meta">
                             <h4 class="h4-sentosa">Portofolio Anda</h4>
-                            <p class="lead "><a href="{{ route('dashboard.portofolio.create') }}">Tambah Portofolio</a></p>
+                            <a href="{{ route('dashboard.portofolio.create') }}"><p class="lead a-hover-sentosa" style="font-weight: 600;font-size:12pt">Tambah Portofolio</p></a>
                         </div>
                         <table class="table">
                             <thead>

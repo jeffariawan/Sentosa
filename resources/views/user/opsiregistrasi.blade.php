@@ -4,7 +4,12 @@
 
     <section id="counts" class="counts">
         <div class="container" data-aos="fade-up">
+<div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 mb-4" style="font-size:24pt; text-align:center; font-weight:900;">Daftar sebagai: </div>
+    <div class="col-lg-4"></div>
 
+</div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                 </div>
@@ -14,7 +19,7 @@
                         <div class="text-center text-lg-start">
                             <a href="{{ route('user.registrasiworker') }}"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Worker</span> <i class="bi bi-arrow-right ml-5"></i>
+                                <span>Pekerja</span> <i class="bi bi-arrow-right ml-5"></i>
                             </a>
                         </div>
                     </div>

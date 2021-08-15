@@ -57,12 +57,13 @@ class ProjectViewDetailController extends Controller
             ->first();
         $bid->win_status = 1;
         $bid->save();
-
+        
         $project = Project::where('project_id', '=', $request->project_id)
             ->first();
+
         $project->status = 'progress';
         $project->final_price = $bid->offer_price;
-        $project->project_start_dt = $bid->available_start_date;
+        $project->project_start_dt = date($bid->available_start_dt);
         $project->save();
 
         $sales = new SalesH;

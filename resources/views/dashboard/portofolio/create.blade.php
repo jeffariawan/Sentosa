@@ -12,11 +12,11 @@
         @csrf
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" class="form-control" name="name">
+            <input type="text" class="form-control" name="name" placeholder="Nama project">
         </div>
         <div class="form-group">
             <label for="">Description</label>
-            <textarea class="form-control" name="description" rows="4"></textarea>
+            <textarea class="form-control" name="description" rows="4" placeholder="deskripsi project"></textarea>
         </div>
         <div class="form-group">
             <label for="">Service</label>

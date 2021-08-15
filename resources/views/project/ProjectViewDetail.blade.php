@@ -14,7 +14,7 @@
                         <h2>{{ $project->title }}</h2>
                     </div>
                     <div class="col-lg-4">
-                        <h2>Budget Rp.{{ $project->budget_range_min }} - Rp.{{ $project->budget_range_max }}</h2>
+                        <h2>Budget Rp.{{ number_format($project->budget_range_min) }} - Rp.{{ number_format($project->budget_range_max) }}</h2>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@
                                                 placeholder="waktu yang dibutuhkan untuk selesai">
                                         </div>
                                         <div class="col form-group">
-                                            <input name="start" type="date" class="form-control"
+                                            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="start"  class="form-control"
                                                 placeholder="Bisa mulai tanggal berapa">
                                         </div>
                                     </div>

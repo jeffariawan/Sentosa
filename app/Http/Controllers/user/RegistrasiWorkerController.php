@@ -25,12 +25,17 @@ class RegistrasiWorkerController extends Controller
 
     public function store(Request $request)
     {
-        if(session('userId') == null)
+        $userIdRegis = "";
+        if(session('userId') != null)
         {
-            return "Session user id regis null";
+            $userIdRegis = session('userId');
+        }else if(session('userIdRegis') != null)
+        {
+            $userIdRegis = session('userIdRegis');
+        }else{
+            return "ession Error";
         }
         
-        $userIdRegis = session('userId');
         
         $user=User::where('user_id', '=', $userIdRegis)->first();
         $user = $user->load('Worker');

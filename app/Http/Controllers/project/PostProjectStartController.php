@@ -54,7 +54,7 @@ class PostProjectStartController extends Controller
         }
 
 
-        return back()->with('success','posting sukses!');
+        return redirect()->route('dashboard.index');
     
     }
 

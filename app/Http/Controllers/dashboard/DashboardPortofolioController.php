@@ -63,18 +63,18 @@ class DashboardPortofolioController extends Controller
         $workerPortofolio->worker_id = $worker->worker_id;
         $workerPortofolio->save();
 
+        if($request->image != null){
         $img = $request->image;
         $namaFile = strval(date('mdYHis')) . $img->getClientOriginalName();
-
-
             $uploadImg = new RefPicture;
             $uploadImg->worker_portofolio_id = $workerPortofolio->worker_portofolio_id;
             $uploadImg->picture_name = $namaFile;
 
             $img->move(public_path().'/assets/img/portfolio', $namaFile);
             $uploadImg->save();
+        }
         
-        return view('dashboard.portofolio.index',compact('worker','workerPortofolio','img','uploadImg'));
+            return redirect()->route('dashboard.portofolio');
     }
 
     public function edit($worker_portofolio_id)

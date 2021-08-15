@@ -16,6 +16,7 @@ class ProjectViewController extends Controller
         $service = RefService::get();
         $province = RefProvince::get();
         $project = Project::where('status', '=', 'open')
+        ->orderBy('created_at', 'desc')
             ->get();
         $i = 0;
 
@@ -41,6 +42,7 @@ class ProjectViewController extends Controller
         $project = Project::select('*')
             ->whereIn('project_id', $projectReturn)
             ->where('status', '=', 'open')
+            ->orderBy('created_at', 'desc')
             ->get();
 
 

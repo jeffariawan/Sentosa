@@ -29,8 +29,11 @@ class DashboardProjectDetailController extends Controller
             ->first();
         $bid = Bid::with('worker.user')->where('project_id', '=', $projectid)
         ->get();
-        $review = Review::where('sales_h_id', '=', $project->SalesH->sales_h_id)
-        ->get();
+        $review=[];
+        if($project->SalesH != null){
+            $review = Review::where('sales_h_id', '=', $project->SalesH->sales_h_id)
+        ->first();
+        }
         return view('dashboard.ProjectDetail', compact('project', 'user', 'province', 'bid','bidWinner','review'));
     }
 }
