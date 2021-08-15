@@ -30,7 +30,7 @@
                     <div class="count-box">
                         <i class="bi bi-person-badge"></i>
                         <div class="text-center text-lg-start">
-                            <a href="{{ route('project.PostProjectStart') }}"
+                            <a href="{{ route('user.login') }}"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                                 <span>Customer</span>
                                 <i class="bi bi-arrow-right ml-5"></i>

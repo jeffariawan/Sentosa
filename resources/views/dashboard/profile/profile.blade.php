@@ -33,9 +33,9 @@
                                 @endforeach
                             @else
                                 <a href="{{ route('user.opsiregistrasi') }}"
-                                    class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center"
+                                    class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center"
                                     style="height: 50px">
-                                    <span>register as worker</span>
+                                    <span>Daftar pekerja</span>
                                 </a>
                             @endif
                         </div>

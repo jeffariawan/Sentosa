@@ -5,8 +5,8 @@
                     <!-- Project Anda -->
                     <article class="entry entry-single">
                         <div class="entry-meta">
-                            <h4 class="h4-sentosa">Project Anda</h4>
-                            <p class="lead"><a href="{{ route('dashboard.portofolio.create') }}">Tambah Article</a></p>
+                            <h4 class="h4-sentosa">Portofolio Anda</h4>
+                            <p class="lead"><a href="{{ route('dashboard.portofolio.create') }}">Tambah Portofolio</a></p>
                         </div>
                         <table class="table">
                             <thead>

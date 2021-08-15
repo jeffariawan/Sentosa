@@ -25,12 +25,12 @@ class RegistrasiWorkerController extends Controller
 
     public function store(Request $request)
     {
-        if(session('userIdRegis') == null)
+        if(session('userId') == null)
         {
             return "Session user id regis null";
         }
         
-        $userIdRegis = session('userIdRegis');
+        $userIdRegis = session('userId');
         
         $user=User::where('user_id', '=', $userIdRegis)->first();
         $user = $user->load('Worker');
@@ -62,7 +62,12 @@ class RegistrasiWorkerController extends Controller
             $workerServiceArea->worker_id = $worker->worker_id;
             $workerServiceArea->save();
         }
-        return redirect()->route('user.login');
+        if(session('userIdRegis') == null)
+        {
+            return redirect()->route('dashboard.index');
+        }else{
+            return redirect()->route('user.login');
+        }
     }else{
         return "User sudah daftar Worker";
     }
