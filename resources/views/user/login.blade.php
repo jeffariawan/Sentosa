@@ -5,11 +5,11 @@
         <div class="container">
             <div class="row gy-4 mt-4">
 
-                <div class="col-lg-7">
+                <div class="col-lg-7 img-login-sentosa">
 					<img src="{{ URL::asset('assets/img/home1.png') }}" alt="">
                 </div>
 
-                <div  class="filter-shadow-sentosa col-lg-3 shadow p-4 mb-5 bg-white rounded" style='padding: 3%;'>
+                <div  class="filter-shadow-sentosa col-lg-4 shadow p-4 mb-5 bg-white rounded" style='padding: 3%;'>
 
                     @if (Session::has('success'))
                         <div class="alert alert-danger">
@@ -65,7 +65,7 @@
                     </form>
                 </div>
 
-				<div class="col-lg-2">
+				<div class="col-lg-1">
                 </div>
             </div>
         </div>
