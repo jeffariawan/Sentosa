@@ -91,7 +91,7 @@
                                         </div>
                                     </div><!-- End comment #1 -->
 
-                                    <div id="comment-reply-1" class="comment comment-reply">
+                                    {{-- <div id="comment-reply-1" class="comment comment-reply">
                                         <div class="d-flex">
                                             <div>
                                                 <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i
@@ -122,7 +122,7 @@
                                             </div>
                                             <button type="submit" class="btn btn-primary">Tinggalkan Pesan</button>
                                         </form>
-                                    </div>
+                                    </div> --}}
 
 
                                 @endforeach

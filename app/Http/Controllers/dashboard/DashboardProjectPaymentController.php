@@ -45,6 +45,7 @@ class DashboardProjectPaymentController extends Controller
         $salesH->payment_id = $payment->payment_id;
         $salesH->save();
 
-        return route('dashboard.index');
+        return redirect()->route('dashboard.index');
+
     }
 }
